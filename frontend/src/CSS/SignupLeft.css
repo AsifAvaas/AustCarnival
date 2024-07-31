@@ -1,0 +1,47 @@
+.signup-design{
+    flex: 1; /* Takes 50% of the container */
+    background-color: rgb(13, 77, 39);
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    overflow: hidden; /* Ensures no overflow beyond the container */
+    position: relative; 
+
+}
+
+.image-container img{
+    width: 100%;
+    height: auto;
+   
+}
+.image-container{
+    width: 60%;
+    z-index: 10;
+}
+.ellipse{
+    position: absolute;
+    background-color: rgb(64, 152, 78);
+    border-radius: 50%;
+    box-shadow: 0px 0px 200px 250px rgb(64, 152, 78); 
+    height:25%;
+    width: 25%;
+    z-index: 1;
+}
+.ellpse1{
+    position: absolute;
+    top: -25%;
+    left: -25%;
+}
+.ellpse2{
+    position: absolute;
+    bottom: 10%;
+    left: -45%;
+}
+
+.ellpse3{
+    position: absolute;
+    bottom: -25%;
+    left: -15%;
+}
+

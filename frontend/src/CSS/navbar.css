@@ -1,0 +1,97 @@
+.navbar-pic {
+    position: relative;
+    background-image: url('../images/navbar.jpg');
+    width: 100%;
+    height: 800px;
+    background-position: center;
+    background-size: cover;
+}
+
+.navbar-pic::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 17, 4, 0.769);
+    pointer-events: none;
+    z-index: 1; 
+}
+.navbar-pic.navbar-pic-small{
+    height: 144px;
+}
+  
+.navbar {
+    position: relative;
+    font-size: 20px;
+    color: white;
+    z-index: 10;
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    border-bottom: 2px solid white;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    align-items: center;
+    height: inherit;
+  }
+  
+  li {
+    margin: 0 12px;
+    color: white;
+
+  }
+  
+  .carnival-logo {
+    height: 100px;
+    width: auto;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  .active{
+    color: rgb(103, 210, 108);
+  }
+
+  .welcome{
+    display: flex;
+    position: relative;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    font-family: "Oxanium"
+  }
+  .welcome-inside{
+    width: 60%;   
+  }
+  .welcome-inside ul {
+    font-size: 4rem;
+    line-height: 100px;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+.welcome-inside li {
+    line-height:90px;
+    
+    margin: 5px 0;
+    
+    
+}

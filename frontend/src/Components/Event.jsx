@@ -8,48 +8,52 @@ function Event(props) {
     <div style={{ marginBottom: "60px" }}>
       <hr style={{ color: "rgb(10, 132, 15)" }} />
       <div className="event-item">
-        {props.index % 2 ? (
-          <>
-            <div
-              className="eventpic"
-              style={{ backgroundImage: `url(${image})` }}
-            ></div>
-            <div className="event-details">
-              <div className="name">{props.eventName}</div>
-              <div className="details">{props.details}</div>
-              <div>{props.date}</div>
-              <button
-                className="event-btn"
-                onClick={() => {
-                  navigate("/registration");
-                }}
+        <div className="inside-event-item">
+          {props.index % 2 ? (
+            <>
+              <div
+                className="eventpic"
+                style={{ backgroundImage: `url(${image})` }}
               >
-                Register
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="event-details">
-              <div className="name">{props.eventName}</div>
-              <div className="details">{props.details}</div>
-              <div>{props.date}</div>
-              <button
-                className="event-btn"
-                onClick={() => {
-                  navigate("/registration");
-                }}
+                <div className="content">{props.date}</div>
+              </div>
+              <div className="event-details">
+                <div className="name">{props.eventName}</div>
+                <div className="details">{props.details}</div>
+                <button
+                  className="event-btn"
+                  onClick={() => {
+                    navigate("/registration");
+                  }}
+                >
+                  Register
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="event-details">
+                <div className="name">{props.eventName}</div>
+                <div className="details">{props.details}</div>
+                <button
+                  className="event-btn"
+                  onClick={() => {
+                    navigate("/registration");
+                  }}
+                >
+                  {" "}
+                  Register
+                </button>
+              </div>
+              <div
+                className="eventpic"
+                style={{ backgroundImage: `url(${image})` }}
               >
-                {" "}
-                Register
-              </button>
-            </div>
-            <div
-              className="eventpic"
-              style={{ backgroundImage: `url(${image})` }}
-            ></div>
-          </>
-        )}
+                <div className="content">{props.date}</div>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

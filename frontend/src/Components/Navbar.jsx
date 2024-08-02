@@ -43,7 +43,6 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            {/* <i className="fa-solid fa-user link profile"></i> */}
             <div className="profile-container" onClick={toggleDropdown}>
               <i className="fa-solid fa-user link profile"></i>
             </div>

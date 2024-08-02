@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 
-const eventschema = new Schema({
+const workshopSchema = new Schema({
     name: String,
     body: String,
     date: String,
@@ -11,4 +11,4 @@ const eventschema = new Schema({
     icon: String
 })
 
-module.exports = mongoose.model('events', eventschema)
+module.exports = mongoose.model('workshops', workshopSchema)

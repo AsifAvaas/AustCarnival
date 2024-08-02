@@ -3,8 +3,7 @@
     justify-content: center;
 }
 .eventpage{
-    max-width: 600px;
-    max-width: 1500px;
+    max-width: 1350px;
     width: 100%;
     margin-top: 100px;
 
@@ -27,9 +26,13 @@
 }
 .event-item{
     margin-top: 60px;
-    display: flex;
     width: 100%;
     
+}
+.inside-event-item{
+    display: flex;
+    padding: 60px;
+
 }
 .event-details{
     flex: 1;
@@ -44,14 +47,40 @@
 .details{
     font-size: 25px;
 }
-.eventpic{
+
+.eventpic {
     flex: 1;
-    /* background-image: url('../images/navbar.jpg'); */
-    height: 500px;
+    background-image: url('../images/navbar.jpg'); 
+    height: 400px;
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
-}
+    position: relative; 
+    display: flex;
+    align-items: flex-end; /* Align content to the bottom */
+  justify-content: center; 
+  }
+  
+  .eventpic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(3, 17, 4, 0.668); 
+    z-index: 1;
+  }
+  
+  .eventpic .content {
+    position: relative;
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-size: 60px;
+    padding: 20px; 
+    z-index: 2; 
+    color: white; 
+  }
 
 .event-btn{
     background-color: rgb(13, 77, 39);
@@ -68,3 +97,5 @@
 .event-btn:hover{
     background-color: rgb(37, 96, 49);
 }
+
+

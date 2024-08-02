@@ -13,7 +13,6 @@ function EventPage() {
     try {
       const response = await axios.post(`${backend}/api/displayevent`);
       setAllEvent(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -21,9 +20,7 @@ function EventPage() {
   useEffect(() => {
     loadEvent();
   }, []);
-  useEffect(() => {
-    console.log("Updated allEvent:", allEvent);
-  }, [allEvent]);
+
   // const eventname = "Programming competition";
   // const details =
   //   "Test your coding skills and problem-solving abilities in our annual Programming Contest! Compete against other talented programmers in a series of challenging problems that will put your algorithmic thinking to the test. Whether you're a beginner or an experienced coder, this contest is an excellent opportunity to learn and showcase your skills.";

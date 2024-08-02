@@ -1,9 +1,19 @@
-import React from "react";
-import { Link, useLocation, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation, NavLink, useNavigate } from "react-router-dom";
 import "../CSS/navbar.css";
 import logo from "../images/logo-white.png";
 function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+  const Logout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+  const isLoggedIN = localStorage.getItem("authToken");
   const isHomePage = location.pathname === "/";
   return (
     <div className={`navbar-pic ${!isHomePage ? "navbar-pic-small" : ""}`}>
@@ -18,13 +28,13 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" to="/signup">
-              Sign up
+            <NavLink className="link" to="/event">
+              Events
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" to="/login">
-              Login
+            <NavLink className="link" to="/gallery">
+              Gallery
             </NavLink>
           </li>
           <li>
@@ -33,7 +43,37 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <i className="fa-solid fa-user link"></i>
+            {/* <i className="fa-solid fa-user link profile"></i> */}
+            <div className="profile-container" onClick={toggleDropdown}>
+              <i className="fa-solid fa-user link profile"></i>
+            </div>
+            {isDropdownOpen && (
+              <div className="dropdown-menu">
+                <ul>
+                  {!isLoggedIN ? (
+                    <>
+                      <li>
+                        <a href="/signup">Sign Up</a>
+                      </li>
+                      <li>
+                        <a href="/login">Login</a>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li>
+                        <a href="/profile">Profile</a>
+                      </li>
+                      <li>
+                        <div className="logout" onClick={Logout}>
+                          Logout
+                        </div>
+                      </li>
+                    </>
+                  )}
+                </ul>
+              </div>
+            )}
           </li>
         </ul>
       </div>

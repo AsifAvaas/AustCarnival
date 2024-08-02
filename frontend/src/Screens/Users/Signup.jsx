@@ -58,6 +58,7 @@ function Signup() {
           <div>
             <form onSubmit={submit}>
               <input
+                className="input-container"
                 type="text"
                 name="name"
                 value={formData.name}
@@ -65,6 +66,7 @@ function Signup() {
                 placeholder="UserName"
               />
               <input
+                className="input-container"
                 type="email"
                 name="email"
                 value={formData.email}
@@ -72,6 +74,7 @@ function Signup() {
                 placeholder="Email"
               />
               <input
+                className="input-container"
                 type="password"
                 name="password"
                 value={formData.password}
@@ -79,6 +82,7 @@ function Signup() {
                 placeholder="Password"
               />
               <input
+                className="input-container"
                 type="password"
                 name="confirmPassword"
                 value={formData.confirmPassword}

@@ -9,17 +9,17 @@ export default function Home() {
 
   const loadData = async () => {
     try {
-      let response = await axios.post(`${backend}/api/data`, {
-        gender: "male",
+      let response = await axios.post(`${backend}/api/food`, {
+        name: "cake",
       });
       let data = response.data.data;
-      console.log(data.name);
-      console.log(backend);
       setdata(data);
     } catch (e) {
       console.log(e);
     }
   };
+
+  const img = `data:image/jpeg;base64,${data.image}`;
 
   useEffect(() => {
     loadData();
@@ -28,8 +28,19 @@ export default function Home() {
   return (
     <div className="home">
       <Navbar />
-      <div className="home-body">{data.name}</div>
+      <div className="home-body">
+        <div>{data.name}</div>
+        <div>{data.type}</div>
+        <div>
+          <img src={img} alt={data.name} />
+        </div>
+      </div>
       <Footer />
     </div>
   );
+}
+
+{
+  /* <Event eventName={eventname} details={details} date={date} />
+          <Event eventName={eventname} details={details} date={date} /> */
 }

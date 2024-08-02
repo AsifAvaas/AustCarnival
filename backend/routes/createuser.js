@@ -5,7 +5,8 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator')
 
-const Data = require('../models/Data')
+const Data = require('../models/Data');
+
 
 
 require('dotenv').config();
@@ -87,9 +88,10 @@ router.post('/data', async (req, res) => {
         return res.json({ data: data })
 
     } catch (e) {
-
+        console.log(e)
+        return
     }
 })
 
-module.exports = router;
 
+module.exports = router;

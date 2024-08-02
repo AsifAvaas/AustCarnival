@@ -5,8 +5,8 @@ const cors = require('cors')
 const app = express()
 const UserRouter = require('./routes/createuser')
 const RefreshRouter = require('./authentication/authenticateRoute')
-const data = require('./models/Data');
 const AuthenticateToken = require('./authentication/Authentication');
+const Events = require('./routes/DisplayEvent');
 const port = process.env.PORT;
 const frontend = process.env.FRONTEND_LINK;
 app.use(express.json());
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', UserRouter)
 app.use('/api', RefreshRouter)
-app.use('/api', AuthenticateToken, data)
+app.use('/api', Events)
 
 app.listen(port)
 

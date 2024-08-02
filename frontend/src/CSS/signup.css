@@ -36,7 +36,7 @@
     margin-bottom: 40px; 
 }
 
-input {
+.input-container {
     margin-bottom: 20px;
     padding: 20px;
     padding-left: 30px;
@@ -47,7 +47,7 @@ input {
     color:  rgb(13, 77, 39);
     font-size: 20px;
 }
-button {
+.btn{
     background-color: rgb(13, 77, 39);
     padding: 15px 60px; 
     border-radius: 15px;

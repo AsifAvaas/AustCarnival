@@ -46,6 +46,7 @@ function Login() {
           <div>
             <form onSubmit={submit}>
               <input
+                className="input-container"
                 type="email"
                 name="email"
                 value={formData.email}
@@ -53,6 +54,7 @@ function Login() {
                 placeholder="Email"
               />
               <input
+                className="input-container"
                 type="password"
                 name="password"
                 value={formData.password}

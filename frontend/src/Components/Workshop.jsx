@@ -18,7 +18,7 @@ function Workshop(props) {
         <div className="commentary">Schedule:</div>
         <div className="workshop-job">{props.date}</div>
         <button className="workshop-btn" type="submit">
-          Signup Now
+          SIGN UP NOW
         </button>
       </div>
     </div>

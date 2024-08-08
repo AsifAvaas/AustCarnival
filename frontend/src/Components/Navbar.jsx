@@ -17,64 +17,61 @@ function Navbar() {
   const isHomePage = location.pathname === "/";
   return (
     <div className={`navbar-pic ${!isHomePage ? "navbar-pic-small" : ""}`}>
-      <div className="navbar">
-        <Link to="/">
-          <img className="carnival-logo" src={logo} alt="Logo" />
-        </Link>
-        <ul>
-          <li>
-            <NavLink className="link" to="/">
-              HOME
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="link" to="/event">
-              Events
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="link" to="/gallery">
-              Gallery
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="link" to="/registration">
-              REGISTRATION
-            </NavLink>
-          </li>
-          <li>
-            <div className="profile-container" onClick={toggleDropdown}>
-              <i className="fa-solid fa-user link profile"></i>
-            </div>
-            {isDropdownOpen && (
-              <div className="dropdown-menu">
-                <ul>
-                  {!isLoggedIN ? (
-                    <>
-                      <li>
-                        <a href="/signup">Sign Up</a>
-                      </li>
-                      <li>
-                        <a href="/login">Login</a>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li>
-                        <a href="/profile">Profile</a>
-                      </li>
-                      <li>
-                        <div className="logout" onClick={Logout}>
-                          Logout
-                        </div>
-                      </li>
-                    </>
-                  )}
-                </ul>
+      <div className="navbar-scaffold">
+        <div className="navbar">
+          <Link to="/">
+            <img className="carnival-logo" src={logo} alt="Logo" />
+          </Link>
+          <ul>
+            <li>
+              <NavLink className="link" to="/">
+                HOME
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/event">
+                Events
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/gallery">
+                Gallery
+              </NavLink>
+            </li>
+            <li>
+              <div className="profile-container" onClick={toggleDropdown}>
+                <i className="fa-solid fa-user link profile"></i>
               </div>
-            )}
-          </li>
-        </ul>
+              {isDropdownOpen && (
+                <div className="dropdown-menu">
+                  <ul>
+                    {!isLoggedIN ? (
+                      <>
+                        <li>
+                          <a href="/signup">Sign Up</a>
+                        </li>
+                        <li>
+                          <a href="/login">Login</a>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li>
+                          <a href="/profile">Profile</a>
+                        </li>
+                        <li>
+                          <div className="logout" onClick={Logout}>
+                            Logout
+                          </div>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+              )}
+            </li>
+          </ul>
+        </div>
       </div>
       {location.pathname === "/" && (
         <div className="welcome">

@@ -2,6 +2,7 @@
     position: relative;
     background-image: url('../images/navbar.jpg');
     width: 100%;
+    max-width: 100%;
     height: 800px;
     background-position: center;
     background-size: cover;
@@ -21,14 +22,16 @@
 .navbar-pic.navbar-pic-small{
     height: 144px;
 }
-  
+  .navbar-scaffold{
+    max-width:100%;
+  }
 .navbar {
     position: relative;
     font-size: 20px;
     color: white;
     z-index: 10;
     height: 100px;
-    width: 80%;
+     width: 80%; 
     margin: 0 auto;
     margin-top: 40px; 
     display: flex;

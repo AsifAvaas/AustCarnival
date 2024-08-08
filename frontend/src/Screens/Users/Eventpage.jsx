@@ -21,10 +21,6 @@ function EventPage() {
     loadEvent();
   }, []);
 
-  // const eventname = "Programming competition";
-  // const details =
-  //   "Test your coding skills and problem-solving abilities in our annual Programming Contest! Compete against other talented programmers in a series of challenging problems that will put your algorithmic thinking to the test. Whether you're a beginner or an experienced coder, this contest is an excellent opportunity to learn and showcase your skills.";
-  // const date = "12-15 july";
   return (
     <div className="home events">
       <Navbar />

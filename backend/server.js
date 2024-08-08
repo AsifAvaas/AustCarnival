@@ -6,6 +6,7 @@ const app = express()
 const UserRouter = require('./routes/createuser')
 const EventsRouter = require('./routes/DisplayEvent');
 const WorkshopRouter = require('./routes/WorkshopRoute');
+const RegistrationRouter = require('./routes/Registration');
 const RefreshRouter = require('./authentication/authenticateRoute')
 const AuthenticateToken = require('./authentication/Authentication');
 const port = process.env.PORT;
@@ -30,6 +31,7 @@ app.use('/api', UserRouter)
 app.use('/api', RefreshRouter)
 app.use('/api', EventsRouter)
 app.use('/api', WorkshopRouter)
+app.use('/api', RegistrationRouter)
 
 app.listen(port)
 

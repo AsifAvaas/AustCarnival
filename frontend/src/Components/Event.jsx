@@ -23,7 +23,7 @@ function Event(props) {
                 <button
                   className="event-btn"
                   onClick={() => {
-                    navigate("/registration");
+                    navigate(`/registration/${props.eventName}`);
                   }}
                 >
                   Register
@@ -38,7 +38,7 @@ function Event(props) {
                 <button
                   className="event-btn"
                   onClick={() => {
-                    navigate("/registration");
+                    navigate(`/registration/${props.eventName}`);
                   }}
                 >
                   {" "}

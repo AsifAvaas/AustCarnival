@@ -5,7 +5,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator')
 
-const Data = require('../models/Data');
+
 
 
 
@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
 
         console.log(`successfully logged in to ${email}`)
 
-        return res.json({ success: true, authToken: authToken, refreshToken: refreshToken, userID: user.id })
+        return res.json({ success: true, authToken: authToken, refreshToken: refreshToken, userID: user.id, email: user.email })
 
     } catch (e) {
         console.log(e)
@@ -81,17 +81,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.post('/data', async (req, res) => {
-    try {
-        let gender = req.body.gender
-        const data = await Data.findOne({ gender })
-        return res.json({ data: data })
 
-    } catch (e) {
-        console.log(e)
-        return
-    }
-})
 
 
 module.exports = router;

@@ -36,7 +36,8 @@
 }
 .event-details{
     flex: 1;
-    padding: 40px;
+    padding: 0 50px;
+    
     
 }
 .name{

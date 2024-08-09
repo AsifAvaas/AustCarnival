@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 
-import RegistrationForm from "../../Components/RegistrationForm";
-import Payment from "../../Components/Payment";
-function Registration() {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(true);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  const handleFormSuccess = () => {
-    setIsFormSubmitted(true);
-  };
+function Success() {
   return (
     <div className="home registration">
       <Navbar />
@@ -27,17 +18,18 @@ function Registration() {
           </div>
         </div>
         <div className="loader">
-          <div className={`progressbar ${isFormSubmitted ? "full" : ""}`}></div>
+          <div className="progressbar complete"></div>
         </div>
       </div>
-      {!isFormSubmitted ? (
-        <RegistrationForm onSuccess={handleFormSuccess} />
-      ) : (
-        <Payment />
-      )}
+      <div className="success_container">
+        <div className="success-head">Registration Successful!</div>
+        <div className="success-body">
+          Your response has been recorded successfully
+        </div>
+      </div>
       <Footer />
     </div>
   );
 }
 
-export default Registration;
+export default Success;

@@ -8,13 +8,16 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.3",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-validator": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "3.6",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "node-global-storage": "^3.0.1",
+    "react-global-storage": "^0.0.5"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",

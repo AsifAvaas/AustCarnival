@@ -8,6 +8,8 @@ import Signup from './Screens/Users/Signup';
 import Login from './Screens/Users/Login';
 import Profile from './Screens/Users/Profile';
 import ProtectedRoutes from './Components/auth/ProtectedRoutes';
+import Error from './Screens/Users/Error';
+import Success from './Screens/Users/Success';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
       <Route path="/registration/:id" element={<ProtectedRoutes><Registration /></ProtectedRoutes>}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />}></Route>
+      <Route path="/error?" element={<Error />}></Route>
+      <Route path="/success" element={<Success />}></Route>
       <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>}></Route>
 
 

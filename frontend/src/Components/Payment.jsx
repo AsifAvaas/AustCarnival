@@ -2,7 +2,27 @@ import React from "react";
 import bkashImage from "../images/bkash.jpg";
 import rocketImage from "../images/rocket.jpg";
 import nogodImage from "../images/nogod.jpg";
+import axios from "axios";
 function Payment() {
+  const backend = process.env.REACT_APP_BACKEND_SERVER;
+  const payBkash = async () => {
+    try {
+      const { data } = await axios.post(
+        `${backend}/api/bkash/payment/create`,
+        {
+          amount: 52,
+          orderId: 1,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      // console.log(data);
+      window.location.href = data.bkashURL;
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
   return (
     <div className="payment-container">
       <h1 className="heading">Payment Gateway:</h1>
@@ -16,7 +36,9 @@ function Payment() {
       <div className="payment-route-container">
         <div className="payment_logo">
           <img src={bkashImage} alt="bkash logo" className="payment_image" />
-          <p className="payment_name">Bkash</p>
+          <button onClick={payBkash} className="payment_name">
+            Bkash
+          </button>
         </div>
       </div>
       <div className="payment-route-container">

@@ -1,0 +1,29 @@
+.profile-img-container{
+    height: 120px;
+    background-color: rgb(231, 242, 236);
+}
+.profile-info-container{
+    background-color: rgb(231, 242, 236);
+    height: 500px;
+}
+
+.profile-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 100px;
+    background-color: white;
+    position: relative; 
+    top: -200px; 
+    left: 300px; 
+    z-index: 15;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.abc{
+    color: black;
+
+    font-size: 150px;
+    display: block;
+    margin: 0 auto;
+}

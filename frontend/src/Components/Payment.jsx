@@ -23,6 +23,19 @@ function Payment() {
       console.log(error.response.data);
     }
   };
+  const checkOut = async () => {
+    try {
+      const { data } = await axios.post(`${backend}/api/payment`, {
+        email: localStorage.getItem("emailID"),
+        number: "01724345688",
+        price: "1852",
+      });
+      // console.log(data);
+      window.location.href = data.url;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="payment-container">
       <h1 className="heading">Payment Gateway:</h1>
@@ -44,7 +57,9 @@ function Payment() {
       <div className="payment-route-container">
         <div className="payment_logo">
           <img src={rocketImage} alt="rocket logo" className="payment_image" />
-          <p className="payment_name">Rocket</p>
+          <button onClick={checkOut} className="payment_name">
+            Rocket
+          </button>
         </div>
       </div>
       <div className="payment-route-container">

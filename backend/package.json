@@ -17,7 +17,9 @@
     "mongodb": "3.6",
     "mongoose": "^8.5.1",
     "node-global-storage": "^3.0.1",
-    "react-global-storage": "^0.0.5"
+    "react-global-storage": "^0.0.5",
+    "sslcommerz-lts": "^1.1.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",

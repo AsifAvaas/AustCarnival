@@ -46,6 +46,14 @@ const RegistrationSchema = new Schema({
     event_name: {
         type: String,
         required: true
+    },
+    tran_id: {
+        type: String,
+        required: true
+    },
+    isPaid: {
+        type: Boolean,
+        required: true
     }
 
 

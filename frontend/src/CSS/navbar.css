@@ -22,6 +22,9 @@
 .navbar-pic.navbar-pic-small{
     height: 144px;
 }
+.navbar-pic.navbar-pic-profile{
+  height: 500px;
+}
   .navbar-scaffold{
     max-width:100%;
   }

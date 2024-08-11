@@ -14,6 +14,9 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    profile_pic: {
+        type: String,
     }
 
 

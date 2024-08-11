@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer";
 import RegistrationForm from "../../Components/RegistrationForm";
 import Payment from "../../Components/Payment";
 function Registration() {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(true);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,14 +27,12 @@ function Registration() {
           </div>
         </div>
         <div className="loader">
-          <div className={`progressbar ${isFormSubmitted ? "full" : ""}`}></div>
+          <div className="progressbar"></div>
         </div>
       </div>
-      {!isFormSubmitted ? (
-        <RegistrationForm onSuccess={handleFormSuccess} />
-      ) : (
-        <Payment />
-      )}
+
+      <RegistrationForm />
+
       <Footer />
     </div>
   );

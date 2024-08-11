@@ -17,6 +17,7 @@ function RegistrationForm({ onSuccess }) {
     email3: "",
     roll3: "",
     team: "",
+    number: "",
     event_name: id,
   });
   const handleChange = (e) => {
@@ -25,7 +26,7 @@ function RegistrationForm({ onSuccess }) {
   const registrationSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${backend}/api/registration`, {
+      const { data } = await axios.post(`${backend}/api/payment`, {
         name1: formData.name1,
         main_email: formData.main_email,
         roll1: formData.roll1,
@@ -37,19 +38,11 @@ function RegistrationForm({ onSuccess }) {
         roll3: formData.roll3,
         team: formData.team,
         event_name: formData.event_name,
+        number: formData.number,
+        price: "1852",
       });
-      const data = response.data;
-      if (data.success) {
-        onSuccess();
-      } else {
-        if (Array.isArray(data.messege)) {
-          alert(
-            data.messege[0].msg || "Something went wrong, please try again."
-          );
-        } else {
-          alert(data.messege || "Something went wrong, please try again.");
-        }
-      }
+
+      window.location.href = data.url;
     } catch (error) {
       console.error(error);
       alert(error.response?.data?.messege || "An unexpected error occurred.");
@@ -155,8 +148,18 @@ function RegistrationForm({ onSuccess }) {
             placeholder={id}
           />
           <div style={{ height: "40px" }}></div>
-          <button className="btn" type="submit">
-            Register
+          <div className="reg-label">Mobile Number:</div>
+          <input
+            type="text"
+            className="reginput"
+            name="number"
+            onChange={handleChange}
+            placeholder="Number"
+          />
+
+          <div style={{ height: "40px" }}></div>
+          <button className="reg_btn" type="submit">
+            Proceed To Payment
           </button>
         </form>
       </div>

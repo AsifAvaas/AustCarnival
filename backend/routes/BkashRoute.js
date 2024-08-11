@@ -45,7 +45,7 @@ router.post('/bkash/payment/create', BkashMiddleware.bkash_auth, async (req, res
 })
 
 
-router.get('/bkash/payment/callback', BkashMiddleware.bkash_auth, async (req, res) => {
+router.get('/bkash/payment/callback', async (req, res) => {
     const { paymentID, status } = req.query
     // console.log(req.query)
     const token = global.getValue('id_token');

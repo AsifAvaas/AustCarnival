@@ -8,7 +8,8 @@ const eventschema = new Schema({
     body: String,
     date: String,
     image: String,
-    icon: String
+    icon: String,
+    price: String
 })
 
 module.exports = mongoose.model('events', eventschema)

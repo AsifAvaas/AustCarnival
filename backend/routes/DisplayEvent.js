@@ -15,16 +15,6 @@ router.post('/displayevent', async (req, res) => {
 })
 
 
-// router.post('/eventbyname', async (req, res) => {
-//     try {
-//         let name = req.body.name;
-//         const event = await Event.findOne({ name });
-//         return res.json({ data: event });
-//     } catch (e) {
-//         console.error(e);
-//         return res.status(401).json({ "msg": "couldn't find event" });
-//     }
-// });
 
 
 

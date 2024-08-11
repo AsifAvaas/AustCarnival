@@ -15,8 +15,13 @@ function Navbar() {
   };
   const isLoggedIN = localStorage.getItem("authToken");
   const isHomePage = location.pathname === "/";
+  const isProfilePage = location.pathname === "/profile";
   return (
-    <div className={`navbar-pic ${!isHomePage ? "navbar-pic-small" : ""}`}>
+    <div
+      className={`navbar-pic ${!isHomePage ? "navbar-pic-small" : ""} ${
+        isProfilePage ? "navbar-pic-profile" : ""
+      }`}
+    >
       <div className="navbar-scaffold">
         <div className="navbar">
           <Link to="/">

@@ -43,8 +43,9 @@ const RegistrationSchema = new Schema({
         type: String,
         required: true
     },
-    event_name: {
-        type: String,
+    eventId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'events', // Reference to the events collection
         required: true
     },
     tran_id: {

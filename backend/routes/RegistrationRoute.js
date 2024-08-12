@@ -13,25 +13,23 @@ router.post('/getRegistration', async (req, res) => {
                 { email2: mail },
                 { email3: mail }
             ]
-        })
+        }).populate('eventId'); // Populate event details
 
         const uniqueData = [];
-        const eventNamesSet = new Set();
+        const eventIdsSet = new Set();
 
         data.forEach(item => {
-            if (!eventNamesSet.has(item.event_name)) {
+            if (!eventIdsSet.has(item.eventId._id.toString())) {
                 uniqueData.push(item);
-                eventNamesSet.add(item.event_name);
+                eventIdsSet.add(item.eventId._id.toString());
             }
         });
 
-        return res.json({ data: uniqueData })
+        return res.json({ data: uniqueData });
     } catch (error) {
         console.error("Error fetching registration:", error);
-        return res.status(500).json({ error: "An error occurred while fetching registration data." });
+        return res.status(500).json({ error: error });
     }
-
-})
-
+});
 
 module.exports = router;

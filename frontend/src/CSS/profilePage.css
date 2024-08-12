@@ -43,6 +43,11 @@
     color: rgb(13, 77, 39);
     font-weight: 500;
 }
+.event_info_head{
+    font-size:22px;
+    color: rgb(13, 77, 39);
+    font-weight: 500;
+}
 .info_body{
     background-color: white;
     padding: 15px;
@@ -80,7 +85,7 @@
     color: rgb(13, 77, 39);
     font-weight: 500;
     font-size: 50px;
-    height: 100px;
+
     margin-top: 20px;
     width: 100%;
     max-width: 1250px;
@@ -91,7 +96,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(231, 242, 236)
+    background-color: rgb(231, 242, 236);
+    /* margin-bottom: 40px; */
+
 
 }
 
@@ -99,5 +106,34 @@
     width: 100%;
     max-width: 1250px;
     padding: 30px;
+    /* background-color: aqua; */
+    display: flex;
+    float: left;
+    border-bottom: 2px solid rgb(15, 66, 35);
 
+}
+.reg_icon_container{
+    background-color: rgb(15, 66, 35);
+    height: 300px;
+    width: 200px;
+    margin-right: 60px;
+    color: white;
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); 
+}
+.reg_event_info{
+
+    color:rgb(13, 77, 39);
+}
+.event_name{
+    font-size: 60px;
+    font-weight: 600;
+}
+.event_body_info{
+    font-weight: 500;
+    padding: 3px 0px;
 }

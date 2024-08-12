@@ -15,7 +15,7 @@ router.post('/payment', async (req, res) => {
     try {
         const tran_id = uuidv4();
 
-        const price = await Events.findOne({ name: req.body.event_name });
+        const event = await Events.findOne({ name: req.body.event_name });
         // console.log(price.price)
         await Register.create({
             name1: req.body.name1,
@@ -28,14 +28,14 @@ router.post('/payment', async (req, res) => {
             email3: req.body.email3,
             roll3: req.body.roll3,
             team: req.body.team,
-            event_name: req.body.event_name,
+            eventId: event._id,
             tran_id: tran_id,
             isPaid: false
         });
 
 
         const data = {
-            total_amount: price.price,
+            total_amount: event.price,
             currency: 'BDT',
             tran_id: tran_id,
             success_url: `${process.env.BACKEND_LINK}/api/success?tran_id=${tran_id}`,

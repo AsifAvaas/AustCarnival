@@ -3,9 +3,10 @@ import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import "../../CSS/profilePage.css";
 import axios from "axios";
+import RegisteredEvents from "../../Components/RegisteredEvents";
 
 export default function Profile() {
-  const [regData, setRegData] = useState({});
+  const [regData, setRegData] = useState([]);
   const [profileData, setProfileData] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
@@ -51,20 +52,29 @@ export default function Profile() {
   };
 
   const fetchRegData = async () => {
+    if (!profileData.email) return; // Ensure profileData.email exists
+
     try {
       const response = await axios.post(`${backend}/api/getRegistration`, {
         email: profileData.email,
       });
-      setRegData(response.data.data);
-      console.log(response.data.data);
-    } catch (error) {}
+      if (response.data && response.data.data) {
+        console.log(response.data.data);
+        setRegData(response.data.data);
+      } else {
+        setRegData([]); // Handle empty data gracefully
+      }
+    } catch (error) {
+      console.error("Error fetching registration data", error);
+      setRegData([]); // Handle errors by setting regData to an empty array
+    }
   };
   useEffect(() => {
     fetchProfile();
   }, []);
   useEffect(() => {
     fetchRegData();
-  }, [profileData]);
+  }, [profileData.email]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -181,11 +191,20 @@ export default function Profile() {
         <div className="titleName">Registered Events:</div>
       </div>
 
-      <div className="reg_event_container">
-        <div className="reg_event_body">djhsa</div>
-      </div>
+      {regData.length > 0 &&
+        regData.map((registration, index) => (
+          <RegisteredEvents
+            name1={registration.name1}
+            name2={registration.name2}
+            name3={registration.name3}
+            team={registration.team}
+            name={registration.eventId.name}
+            date={registration.eventId.date}
+            icon={registration.eventId.icon}
+          />
+        ))}
 
-      <div style={{ height: "1000px" }}></div>
+      <div style={{ height: "100px" }}></div>
       <Footer />
     </div>
   );

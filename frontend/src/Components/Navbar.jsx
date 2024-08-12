@@ -27,55 +27,59 @@ function Navbar() {
           <Link to="/">
             <img className="carnival-logo" src={logo} alt="Logo" />
           </Link>
-          <ul>
-            <li>
-              <NavLink className="link" to="/">
-                HOME
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="link" to="/event">
-                Events
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="link" to="/gallery">
-                Gallery
-              </NavLink>
-            </li>
-            <li>
-              <div className="profile-container" onClick={toggleDropdown}>
-                <i className="fa-solid fa-user link profile"></i>
-              </div>
-              {isDropdownOpen && (
-                <div className="dropdown-menu">
-                  <ul>
-                    {!isLoggedIN ? (
-                      <>
-                        <li>
-                          <a href="/signup">Sign Up</a>
-                        </li>
-                        <li>
-                          <a href="/login">Login</a>
-                        </li>
-                      </>
-                    ) : (
-                      <>
-                        <li>
-                          <a href="/profile">Profile</a>
-                        </li>
-                        <li>
-                          <div className="logout" onClick={Logout}>
-                            Logout
-                          </div>
-                        </li>
-                      </>
-                    )}
-                  </ul>
+          {!isProfilePage ? (
+            <ul>
+              <li>
+                <NavLink className="link" to="/">
+                  HOME
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="link" to="/event">
+                  Events
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="link" to="/gallery">
+                  Gallery
+                </NavLink>
+              </li>
+              <li>
+                <div className="profile-container" onClick={toggleDropdown}>
+                  <i className="fa-solid fa-user link profile"></i>
                 </div>
-              )}
-            </li>
-          </ul>
+                {isDropdownOpen && (
+                  <div className="dropdown-menu">
+                    <ul>
+                      {!isLoggedIN ? (
+                        <>
+                          <li>
+                            <a href="/signup">Sign Up</a>
+                          </li>
+                          <li>
+                            <a href="/login">Login</a>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li>
+                            <a href="/profile">Profile</a>
+                          </li>
+                          <li>
+                            <div className="logout" onClick={Logout}>
+                              Logout
+                            </div>
+                          </li>
+                        </>
+                      )}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            </ul>
+          ) : (
+            <div className="my_profile">My Profile </div>
+          )}
         </div>
       </div>
       {location.pathname === "/" && (

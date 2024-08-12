@@ -4,13 +4,15 @@
 }
 .profile-info-container{
     background-color: rgb(231, 242, 236);
-    height: 500px;
+    display: flex;
+    justify-content: center;
 }
 
 .profile-img {
     height: 300px;
     width: 300px;
     border-radius: 100px;
+    border: 5px solid white;
     background-color: white;
     position: relative; 
     top: -200px; 
@@ -19,11 +21,83 @@
     display: flex;
     justify-self: center;
     align-items: center;
+    z-index: 10;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
-.abc{
+.profile-icon{
     color: black;
 
     font-size: 150px;
     display: block;
     margin: 0 auto;
+}
+.profile_info{
+    width: 100%;
+    padding: 60px;
+    max-width: 1250px;
+}
+.info_head{
+    font-size: 30px;
+    color: rgb(13, 77, 39);
+    font-weight: 500;
+}
+.info_body{
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0px;
+    font-size: 20px;
+    border-radius: 15px;
+    width: 60%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+.profile_edit{
+    background-color: rgb(122, 159, 137);
+    padding: 10px 30px ;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.profile_input{
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(13, 77, 39);
+
+}
+.title_scafford{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleName{
+    color: rgb(13, 77, 39);
+    font-weight: 500;
+    font-size: 50px;
+    height: 100px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1250px;
+    padding: 30px;
+}
+
+.reg_event_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 242, 236)
+
+}
+
+.reg_event_body{
+    width: 100%;
+    max-width: 1250px;
+    padding: 30px;
+
 }

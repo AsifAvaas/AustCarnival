@@ -151,3 +151,8 @@
 .my_profile{
   font-size: 60px;
 }
+.admin_welcome{
+  text-align: center;
+  font-size: 100px;
+  font-weight: 500;
+}

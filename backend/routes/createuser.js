@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
+const Workshop = require('../models/Workshop');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator')
 
@@ -42,7 +43,7 @@ router.post('/signup', body('email', 'invalid email id').isEmail(), body('passwo
             name: req.body.name,
             email: req.body.email,
             password: securedPassword,
-
+            isAdmin: req.body.isAdmin
         });
         res.json({ success: true });
     } catch (e) {
@@ -56,10 +57,13 @@ router.post('/login', async (req, res) => {
     try {
         let email = req.body.email;
 
-        const user = await User.findOne({ email })
+        let user = await User.findOne({ email })
 
         if (!user) {
-            return res.status(400).json({ messege: 'email address does not exist' })
+            user = await Workshop.findOne({ email });
+            if (!user) {
+                return res.status(400).json({ message: 'Email address does not exist' });
+            }
         }
         const passwordCheck = await bcrypt.compare(req.body.password, user.password)
 
@@ -72,7 +76,7 @@ router.post('/login', async (req, res) => {
 
         console.log(`successfully logged in to ${email}`)
 
-        return res.json({ success: true, authToken: authToken, refreshToken: refreshToken, userID: user.id, email: user.email })
+        return res.json({ success: true, authToken: authToken, refreshToken: refreshToken, userID: user.id, email: user.email, adminStatus: user.isAdmin, userType: user instanceof Workshop ? 'instructor' : 'student' })
 
     } catch (e) {
         console.log(e)

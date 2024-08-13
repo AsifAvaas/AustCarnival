@@ -26,8 +26,13 @@ function Login() {
         localStorage.setItem("authToken", data.authToken);
         localStorage.setItem("refreshToken", data.refreshToken);
         localStorage.setItem("emailID", data.email);
-
-        navigate("/");
+        localStorage.setItem("adminStatus", data.adminStatus);
+        const { userType } = response.data;
+        if (userType === "instructor") {
+          navigate("/instructor/home");
+        } else {
+          navigate("/");
+        }
       } else {
         console.log(data);
         alert(data.messege);

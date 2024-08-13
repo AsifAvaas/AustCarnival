@@ -18,12 +18,6 @@ function Home_WorkShop() {
   useEffect(() => {
     loadWorkshop();
   }, []);
-  const workshop = "workshop name";
-  const name = "person name";
-  const job = "person job";
-  const description =
-    "decujkhfdsih fdjksn jkhfd jkdsfs professionals, offering valuable insights and hands-on learning experiences. These sessions provide an opportunity to enhance your skills, network with leaders in the field, and stay updated on the";
-  const date = "12/12/123";
 
   return (
     <div className="home-workshop-container">
@@ -42,11 +36,11 @@ function Home_WorkShop() {
               <div key={data.id} className="workshp-cards">
                 <Workshop
                   workshop={data.workshop}
-                  name={data.Name}
+                  name={data.name}
                   job={data.job}
                   description={data.description}
                   date={data.date}
-                  image={data.image}
+                  image={data.profile_pic}
                 />
               </div>
             ))}

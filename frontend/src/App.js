@@ -10,6 +10,8 @@ import Profile from './Screens/Users/Profile';
 import ProtectedRoutes from './Components/auth/ProtectedRoutes';
 import Error from './Screens/Users/Error';
 import Success from './Screens/Users/Success';
+import AdminSignup from './Screens/Admin/AdminSignup';
+import InstructorHome from './Screens/Instructor/InstructorHome';
 
 
 function App() {
@@ -20,9 +22,11 @@ function App() {
       <Route path="/gallery" element={<Gellery />}></Route>
       <Route path="/registration/:id" element={<ProtectedRoutes><Registration /></ProtectedRoutes>}></Route>
       <Route path="/signup" element={<Signup />}></Route>
+      <Route path="/admin/signup" element={<AdminSignup />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/error?" element={<Error />}></Route>
       <Route path="/success" element={<Success />}></Route>
+      <Route path="/instructor/home" element={<InstructorHome />}></Route>
       <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>}></Route>
 
 

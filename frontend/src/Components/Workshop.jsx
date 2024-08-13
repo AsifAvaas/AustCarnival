@@ -1,7 +1,7 @@
 import React from "react";
 
 function Workshop(props) {
-  const image = `data:image/jpeg;base64,${props.image}`;
+  const image = `${props.image}`;
   return (
     <div className="workshop-body">
       <div

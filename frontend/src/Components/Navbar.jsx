@@ -6,6 +6,7 @@ function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const isAdmin = localStorage.getItem("adminStatus");
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -85,11 +86,15 @@ function Navbar() {
       {location.pathname === "/" && (
         <div className="welcome">
           <div className="welcome-inside">
-            <ul>
-              <li>WELCOME TO</li>
-              <li>AUST CSE CARNIVAL</li>
-              <li>4.0</li>
-            </ul>
+            {isAdmin === "true" ? (
+              <div className="admin_welcome">WELCOME ADMIN</div>
+            ) : (
+              <ul>
+                <li>WELCOME TO</li>
+                <li>AUST CSE CARNIVAL</li>
+                <li>4.0</li>
+              </ul>
+            )}
           </div>
         </div>
       )}

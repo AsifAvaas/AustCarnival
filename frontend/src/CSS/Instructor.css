@@ -1,0 +1,76 @@
+.Instructor_banner{
+    height: 500px;
+    width: 100%;
+    position: relative;
+    background-image: url('../images/navbar.jpg');
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Instructor_banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 17, 4, 0.769);
+    pointer-events: none;
+    z-index: 1; 
+}
+.instructor_header{
+    color: white;
+    z-index: 15;
+    position: relative;
+    text-align: center;
+    font-size: 100px;
+}
+.Instructor_body_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color:rgb(231, 242, 236);
+
+}
+.instruction_body{
+    
+    width: 100%;
+    max-width: 1250px;
+    padding: 30px ;
+    margin: 30px;
+    color: rgb(13, 77, 39);
+}
+.picture{
+    height: 300px;
+    width: 300px;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    border-radius: 50px;
+}
+.ins_header{
+    font-size: 30px;
+    font-weight: 500;
+}
+.ins_body{
+    padding: 15px;
+    border-radius: 15px;
+    margin: 8px 0px;
+    width: 50%;
+    background-color: white;
+    font-size: 20px;
+}
+.fileInputLabel {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative; /* Positioning it over the image */
+    top: 50%;           /* Adjust based on where you want it */
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

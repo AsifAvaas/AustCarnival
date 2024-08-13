@@ -10,6 +10,7 @@ function Signup() {
     email: "",
     password: "",
     confirmPassword: "",
+    isAdmin: false,
   });
   const navigate = useNavigate();
   const backend = process.env.REACT_APP_BACKEND_SERVER;
@@ -29,6 +30,7 @@ function Signup() {
         email: formData.email,
         password: formData.password,
         confirmPassword: formData.confirmPassword,
+        isAdmin: false,
       });
       const data = response.data;
       if (data.success) {

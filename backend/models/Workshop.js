@@ -5,10 +5,15 @@ const { Schema } = mongoose
 
 const workshopSchema = new Schema({
     name: String,
-    body: String,
+    email: String,
+    password: String,
+    job: String,
+    description: String,
     date: String,
-    image: String,
-    icon: String
+    profile_pic: String,
+    workshop: String,
+    isApproved: Boolean,
+    isAdmin: Boolean
 })
 
 module.exports = mongoose.model('workshops', workshopSchema)

@@ -1,0 +1,65 @@
+.admin_workshop_container{
+    display: flex;
+    justify-content: center;
+
+}
+.admin_workshop_scaffold{
+    width: 100%;
+    max-width: 1250px;
+}
+.admin_workshop{
+
+    /* height: 300px; */
+    background-color: rgb(231, 242, 236); 
+    padding:  30px;
+    margin: 30px;
+    border-radius: 45px;
+    display: flex;
+    float:left
+}
+.workshop_pic{
+
+    color: white;
+    height:300px;
+    width: 300px;
+    border-radius: 30px;
+    margin-right: 30px;
+    
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+.workshop_body{
+    color: rgb(13, 77, 39);
+    font-size: 20px;
+}
+.workshop_name{
+    font-size: 40px;
+    font-weight: 500;
+    
+}
+.workshop_host{
+    font-size: 30px;
+
+}
+.workshop_header{
+    font-size: 50px;
+    color: rgb(13, 77, 39);
+    font-weight: 500;
+    margin: 30px;
+    margin-bottom: 0px;
+}
+.workshop_delete{
+    float: right;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 15px;
+    color:white;
+    background-color: rgb(13, 77, 39);
+    cursor: pointer;
+    margin-left: 10px;
+}
+.workshop_delete:hover{
+    background-color: rgb(131, 20, 20);
+}

@@ -36,7 +36,7 @@ app.use(cors({
 }))
 
 app.get('/', (req, res) => {
-    res.status(200).send(port)
+    res.status(200).send("Backend is running")
 })
 
 app.use('/api', UserRouter)

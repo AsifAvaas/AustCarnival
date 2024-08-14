@@ -9,6 +9,7 @@ const WorkshopRouter = require('./routes/WorkshopRoute');
 const BkashRouter = require('./routes/BkashRoute');
 const ProfileRouter = require('./routes/ProfileRoute');
 const PaymentRouter = require('./routes/PaymentRoute');
+const GalleryRouter = require('./routes/GalleryRoute');
 const RegistrationRouter = require('./routes/RegistrationRoute');
 const RefreshRouter = require('./authentication/authenticateRoute')
 const AuthenticateToken = require('./authentication/Authentication');
@@ -46,6 +47,7 @@ app.use('/api', ProfileRouter)
 app.use('/api', BkashRouter)
 app.use('/api', PaymentRouter)
 app.use('/api', RegistrationRouter)
+app.use('/api', GalleryRouter)
 
 
 app.listen(port)

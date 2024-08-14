@@ -3,7 +3,8 @@ import "../CSS/eventPage.css";
 import { useNavigate } from "react-router-dom";
 function Event(props) {
   const navigate = useNavigate();
-  const image = `data:image/jpeg;base64,${props.image}`;
+  // const image = `data:image/jpeg;base64,${props.image}`;
+  // const image = `${props.image}`;
   return (
     <div style={{ marginBottom: "60px" }}>
       <hr style={{ color: "rgb(10, 132, 15)" }} />
@@ -13,7 +14,7 @@ function Event(props) {
             <>
               <div
                 className="eventpic"
-                style={{ backgroundImage: `url(${image})` }}
+                style={{ backgroundImage: `url(${props.image})` }}
               >
                 <div className="content">{props.date}</div>
               </div>
@@ -47,7 +48,7 @@ function Event(props) {
               </div>
               <div
                 className="eventpic"
-                style={{ backgroundImage: `url(${image})` }}
+                style={{ backgroundImage: `url(${props.image})` }}
               >
                 <div className="content">{props.date}</div>
               </div>

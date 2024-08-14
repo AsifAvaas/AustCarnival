@@ -6,7 +6,7 @@ import axios from "axios";
 function InstructorHome() {
   const [profile, setProfile] = useState([]);
   const backend = process.env.REACT_APP_BACKEND_SERVER;
-  const userId = localStorage.getItem("id");
+  const userId = sessionStorage.getItem("id");
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -85,7 +85,10 @@ function InstructorHome() {
       console.log("error:", error);
     }
   };
-
+  const handleLogout = () => {
+    sessionStorage.clear();
+    window.location.href = "/login";
+  };
   useEffect(() => {
     fetchProfile();
   }, []);
@@ -100,9 +103,18 @@ function InstructorHome() {
         <div className="instruction_body">
           <div
             className="picture"
-            style={{ backgroundImage: `url(${profile.profile_pic})` }}
+            style={
+              !isEditing
+                ? { backgroundImage: `url(${profile.profile_pic})` }
+                : { backgroundColor: "white" }
+            }
           >
-            {isEditing && (
+            {/* {!profile.profile_pic && (
+              <div className="instructor_icon_container">
+                <i className="fa-regular fa-user  instructor_icon"></i>
+              </div>
+            )} */}
+            {isEditing ? (
               <>
                 <label htmlFor="fileInput" className="fileInputLabel">
                   Change Image
@@ -115,6 +127,14 @@ function InstructorHome() {
                   style={{ display: "none" }}
                   onChange={convertToBase64}
                 />
+              </>
+            ) : (
+              <>
+                {!profile.profile_pic && (
+                  <div className="instructor_icon_container">
+                    <i className="fa-regular fa-user  instructor_icon"></i>
+                  </div>
+                )}
               </>
             )}
           </div>
@@ -199,18 +219,22 @@ function InstructorHome() {
           ) : (
             <div className="ins_body">{profile.workshop}</div>
           )}
+          <div className="ins_header"></div>
+          {isEditing ? (
+            <button className="profile_edit" onClick={updateProfile}>
+              SUBMIT
+            </button>
+          ) : (
+            <button className="profile_edit" onClick={() => setIsEditing(true)}>
+              EDIT <i className="fa-solid fa-user-pen"></i>
+            </button>
+          )}
         </div>
       </div>
 
-      {isEditing ? (
-        <button className="profile_edit" onClick={updateProfile}>
-          SUBMIT
-        </button>
-      ) : (
-        <button className="profile_edit" onClick={() => setIsEditing(true)}>
-          EDIT <i className="fa-solid fa-user-pen"></i>
-        </button>
-      )}
+      <button onClick={handleLogout} className="instructor_logout">
+        Logout
+      </button>
 
       <div style={{ height: "100px" }}></div>
       <Footer />

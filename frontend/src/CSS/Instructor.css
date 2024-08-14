@@ -71,6 +71,39 @@
     border-radius: 5px;
     position: relative; /* Positioning it over the image */
     top: 50%;           /* Adjust based on where you want it */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 30%;
+    transform: translate(-30%, -50%);
+  }
+  .instructor_icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+  }
+  
+  .instructor_icon {
+    color: black;
+    font-size: 160px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .instructor_logout{
+    padding: 15px;
+    width: 400px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(192, 42, 42);
+    margin: 20px auto;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .instructor_logout:hover{
+    background-color:brown
   }

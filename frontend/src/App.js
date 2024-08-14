@@ -12,6 +12,7 @@ import Error from './Screens/Users/Error';
 import Success from './Screens/Users/Success';
 import AdminSignup from './Screens/Admin/AdminSignup';
 import InstructorHome from './Screens/Instructor/InstructorHome';
+import NewEvent from './Screens/Admin/NewEvent';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path="/error?" element={<Error />}></Route>
       <Route path="/success" element={<Success />}></Route>
       <Route path="/instructor/home" element={<InstructorHome />}></Route>
+      <Route path="/admin/event/new" element={<NewEvent />}></Route>
       <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>}></Route>
 
 

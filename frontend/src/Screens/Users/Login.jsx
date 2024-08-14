@@ -22,16 +22,17 @@ function Login() {
       });
       const data = response.data;
       if (data.success) {
-        localStorage.setItem("id", data.userID);
-        localStorage.setItem("authToken", data.authToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
-        localStorage.setItem("emailID", data.email);
-        localStorage.setItem("adminStatus", data.adminStatus);
         const { userType } = response.data;
         if (userType === "instructor") {
-          navigate("/instructor/home");
+          sessionStorage.setItem("id", data.userID);
+          navigate("/instructor/home", { replace: true });
         } else {
-          navigate("/");
+          localStorage.setItem("id", data.userID);
+          localStorage.setItem("authToken", data.authToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+          localStorage.setItem("emailID", data.email);
+          localStorage.setItem("adminStatus", data.adminStatus);
+          navigate("/", { replace: true });
         }
       } else {
         console.log(data);

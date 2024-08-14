@@ -1,0 +1,142 @@
+.admin_event_container{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.admin_event_body{
+    width: 100%;
+    max-width: 1250px;
+    padding: 30px;
+    margin: 30px;
+}
+
+.workshop_edit{
+    float: right;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 15px;
+    color:white;
+    background-color: rgb(13, 77, 39);
+    cursor: pointer;
+    margin-left: 10px;
+}
+.workshop_edit:hover{
+    background-color: rgb(255, 255, 25);
+    color: black;
+}
+
+.modal_overlay {
+  z-index: 1000;
+  box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(178, 172, 172, 0.308);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal_container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 1000px;
+    width: 90%; /* Prevent it from overflowing on small screens */
+    z-index: 1050;
+  }
+  
+  .modal_scaffold {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .modal_input_group {
+    margin-bottom: 15px;
+    padding-right: 0; /* Ensure no padding pushes it out */
+  }
+  
+  .modal_input_group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .modal_input_group input,
+  .modal_input_group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  .modal_input_group textarea {
+    height: 100px;
+  }
+  
+  .modal_actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .modal_container {
+      width: 90%; /* Adjust for smaller screens */
+    }
+  }
+  
+  * {
+    box-sizing: border-box; /* Ensure all elements respect box-sizing */
+  }
+  .new_event{
+    color: white;
+    background-color: rgb(13, 77, 39);
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    padding: 15px 80px;
+    cursor: pointer;
+    margin: 0px auto;
+    display: block;
+    
+  }
+
+  .new_event_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .new_event_body{
+    width: 100%;
+    max-width: 1250px;
+    margin: 30px;
+    padding: 30px;
+  }
+  .new_event_title{
+    color:rgb(13, 77, 39);
+    font-size: 50px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .form_lebel{
+    font-size: 30px;
+    color:rgb(13, 77, 39);
+    font-weight: 500;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  .event_input_container{
+    font-size: 20px;
+    color:rgb(13, 77, 39);
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(13, 77, 39);
+    width: 100%;
+    margin-bottom: 10px;
+  }

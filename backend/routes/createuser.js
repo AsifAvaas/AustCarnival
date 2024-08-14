@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
         const authToken = jwt.sign({ id: user.id }, jwt_secret, { expiresIn: "30m" })
         const refreshToken = jwt.sign({ id: user.id }, refresh_secret, { expiresIn: "15d" })
 
-        console.log(`successfully logged in to ${email}`)
+        // console.log(`successfully logged in to ${email}`)
 
         return res.json({ success: true, authToken: authToken, refreshToken: refreshToken, userID: user.id, email: user.email, adminStatus: user.isAdmin, userType: user instanceof Workshop ? 'instructor' : 'student' })
 

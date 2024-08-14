@@ -18,6 +18,19 @@ router.post('/profile', async (req, res) => {
         res.status(500).send("Server Error");
     }
 })
+router.post('/profile/all', async (req, res) => {
+    const id = req.body.id
+    try {
+        let user = await User.find({
+            _id: { $ne: id }
+        });
+        res.json({ success: true, profileInfo: user })
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, error: error })
+    }
+})
 
 router.post('/profile/update', async (req, res) => {
     const id = req.body.id
@@ -49,6 +62,19 @@ router.post('/profile/update', async (req, res) => {
         res.status(500).send("Server Error");
     }
 })
-
+router.delete('/profile/delete/:id', async (req, res) => {
+    try {
+        const profileId = req.params.id;
+        const deletedProfile = await User.findByIdAndDelete(profileId);
+        if (deletedProfile) {
+            res.status(200).json({ success: true, message: 'profile deleted successfully' });
+        } else {
+            res.status(404).json({ success: false, message: 'Profile not found' });
+        }
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ success: false, message: 'An error occurred while deleting the Profile' });
+    }
+})
 
 module.exports = router;

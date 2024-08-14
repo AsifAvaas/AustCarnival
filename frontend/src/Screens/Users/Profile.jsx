@@ -4,6 +4,7 @@ import Footer from "../../Components/Footer";
 import "../../CSS/profilePage.css";
 import axios from "axios";
 import RegisteredEvents from "../../Components/RegisteredEvents";
+import AdminProfile from "../../Components/admin/AdminProfile";
 
 export default function Profile() {
   const [regData, setRegData] = useState([]);
@@ -15,6 +16,7 @@ export default function Profile() {
     password: profileData.password,
     image: "",
   });
+  const isAdmin = localStorage.getItem("adminStatus");
   const convertToBase64 = (e) => {
     console.log(e);
     var reader = new FileReader();
@@ -187,22 +189,30 @@ export default function Profile() {
           )}
         </div>
       </div>
-      <div className="title_scafford">
-        <div className="titleName">Registered Events:</div>
-      </div>
 
-      {regData.length > 0 &&
-        regData.map((registration, index) => (
-          <RegisteredEvents
-            name1={registration.name1}
-            name2={registration.name2}
-            name3={registration.name3}
-            team={registration.team}
-            name={registration.eventId.name}
-            date={registration.eventId.date}
-            icon={registration.eventId.icon}
-          />
-        ))}
+      {isAdmin === "false" || isAdmin === null ? (
+        <>
+          {regData.length > 0 && (
+            <div className="title_scafford">
+              <div className="titleName">Registered Events:</div>
+            </div>
+          )}
+          {regData.length > 0 &&
+            regData.map((registration, index) => (
+              <RegisteredEvents
+                name1={registration.name1}
+                name2={registration.name2}
+                name3={registration.name3}
+                team={registration.team}
+                name={registration.eventId.name}
+                date={registration.eventId.date}
+                icon={registration.eventId.icon}
+              />
+            ))}
+        </>
+      ) : (
+        <AdminProfile />
+      )}
 
       <div style={{ height: "100px" }}></div>
       <Footer />

@@ -1,0 +1,13 @@
+.admin_profile_container{
+    display: flex;
+    min-height: 200px;
+    width: 100%;
+    justify-content: center;
+    color: rgb(13, 77, 39);
+}
+.admin_profile_scaffold{
+    max-width: 1250px;
+    width: 100%;
+    padding: 30px;
+    margin: 30px;
+}

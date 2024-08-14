@@ -35,6 +35,7 @@ function Home_WorkShop() {
             allWorkshop.map((data) => (
               <div key={data.id} className="workshp-cards">
                 <Workshop
+                  id={data._id}
                   workshop={data.workshop}
                   name={data.name}
                   job={data.job}
@@ -44,15 +45,6 @@ function Home_WorkShop() {
                 />
               </div>
             ))}
-          {/* <div className="workshp-cards">
-            <Workshop
-              workshop={workshop}
-              name={name}
-              job={job}
-              description={description}
-              date={date}
-            />
-          </div> */}
         </div>
       </div>
     </div>

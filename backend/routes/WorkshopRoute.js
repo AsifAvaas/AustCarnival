@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const Workshop = require('../models/Workshop')
+const WorkshopStudent = require('../models/WorkshopStudent')
+const User = require('../models/User')
 
 router.post('/workshop/all', async (req, res) => {
     try {
@@ -82,6 +83,37 @@ router.post('/workshop/profile', async (req, res) => {
         res.status(500).send("Server Error");
     }
 })
+
+router.post('/workshop/student/signup', async (req, res) => {
+    const studentname = await User.findOne({ email: req.body.studentEmail })
+    console.log(studentname.name)
+    try {
+        await WorkshopStudent.create({
+            WorkshopName: req.body.WorkshopName,
+            studentName: studentname.name,
+            studentEmail: req.body.studentEmail
+        })
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, error: error.message });
+    }
+})
+
+router.post('/workshop/instructor', async (req, res) => {
+
+    try {
+        let workshop = await WorkshopStudent.find({ WorkshopName: req.body.workshopName })
+        if (workshop) {
+            res.json({ success: true, data: workshop });
+        }
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, error: error.message });
+    }
+})
+
+
 
 
 router.put('/workshop/profile/update', async (req, res) => {

@@ -25,10 +25,19 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 MongoDB();
-
+const allowedOrigins = [
+    frontend,  // or your frontend URL during development
+    'https://aust-carnival.vercel.app'
+];
 
 app.use(cors({
-    origin: "https://aust-carnival.vercel.app",
+    origin: function (origin, callback) {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ['Content-Type', 'authToken'],
     credentials: true

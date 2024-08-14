@@ -28,11 +28,10 @@ MongoDB();
 
 
 app.use(cors({
-    origin: frontend,
+    origin: "https://aust-carnival.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ['Content-Type', 'authToken'],
     credentials: true
-
 }))
 
 app.get('/', (req, res) => {

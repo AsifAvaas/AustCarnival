@@ -38,9 +38,9 @@ router.post('/payment', async (req, res) => {
             total_amount: event.price,
             currency: 'BDT',
             tran_id: tran_id,
-            success_url: `${process.env.BACKEND_LINK}/api/success?tran_id=${tran_id}`,
-            fail_url: `${process.env.BACKEND_LINK}/api/error/${tran_id}`,
-            cancel_url: `${process.env.BACKEND_LINK}/api/error/${tran_id}`,
+            success_url: `https://aust-carnival-backend.vercel.app/api/success?tran_id=${tran_id}`,
+            fail_url: `https://aust-carnival-backend.vercel.app/api/error/${tran_id}`,
+            cancel_url: `https://aust-carnival-backend.vercel.app/api/error/${tran_id}`,
             ipn_url: 'http://localhost:3030/ipn',
             shipping_method: 'Courier',
             product_name: 'Computer.',
@@ -96,13 +96,13 @@ router.post('/success', async (req, res) => {
 
             paymentData.isPaid = true;
             await paymentData.save();
-            return res.redirect(`${process.env.FRONTEND_LINK}/success`)
+            return res.redirect(`https://aust-carnival.vercel.app/success`)
         } else {
-            return res.redirect(`${process.env.FRONTEND_LINK}/error`)
+            return res.redirect(`https://aust-carnival.vercel.app/error`)
         }
     } catch (error) {
         console.error(error);
-        return res.redirect(`${process.env.FRONTEND_LINK}/error`)
+        return res.redirect(`https://aust-carnival.vercel.app/error`)
     }
 })
 
@@ -115,10 +115,10 @@ router.post('/error/:tran_id', async (req, res) => {
 
 
         // Redirect to the error page
-        return res.redirect(`${process.env.FRONTEND_LINK}/error`);
+        return res.redirect(`https://aust-carnival.vercel.app/error`);
     } catch (error) {
         console.error("Error deleting transaction:", error);
-        return res.redirect(`${process.env.FRONTEND_LINK}/error`);
+        return res.redirect(`https://aust-carnival.vercel.app/error`);
     }
 })
 

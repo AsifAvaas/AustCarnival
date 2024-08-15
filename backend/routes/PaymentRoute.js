@@ -88,7 +88,7 @@ router.post('/payment', async (req, res) => {
 
 
 
-router.post('/success', async (req, res) => {
+router.get('/success', async (req, res) => {
     const tran_id = req.query.tran_id;
     const paymentData = await Register.findOne({ tran_id: tran_id });
     try {
@@ -106,7 +106,7 @@ router.post('/success', async (req, res) => {
     }
 })
 
-router.post('/error/:tran_id', async (req, res) => {
+router.get('/error/:tran_id', async (req, res) => {
 
 
     try {

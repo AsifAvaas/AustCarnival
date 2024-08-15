@@ -96,6 +96,9 @@ router.get('/success', async (req, res) => {
             return res.redirect(`https://aust-carnival.vercel.app/error`);
         }
 
+        // Introduce a small delay
+        await new Promise(resolve => setTimeout(resolve, 100)); // 100ms delay
+
         const paymentData = await Register.findOne({ tran_id: tran_id });
 
         if (!paymentData) {
@@ -105,6 +108,7 @@ router.get('/success', async (req, res) => {
 
         paymentData.isPaid = true;
         await paymentData.save();
+
         console.log(`Payment successful for tran_id: ${tran_id}`);
         return res.redirect(`https://aust-carnival.vercel.app/success`);
     } catch (error) {

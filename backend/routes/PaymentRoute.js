@@ -90,21 +90,29 @@ router.post('/payment', async (req, res) => {
 
 router.get('/success', async (req, res) => {
     const tran_id = req.query.tran_id;
-    const paymentData = await Register.findOne({ tran_id: tran_id });
     try {
-        if (paymentData) {
-
-            paymentData.isPaid = true;
-            await paymentData.save();
-            return res.redirect(`https://aust-carnival.vercel.app/success`)
-        } else {
-            return res.redirect(`https://aust-carnival.vercel.app/error`)
+        if (!tran_id) {
+            console.error("No tran_id provided");
+            return res.redirect(`https://aust-carnival.vercel.app/error`);
         }
+
+        const paymentData = await Register.findOne({ tran_id: tran_id });
+
+        if (!paymentData) {
+            console.error(`No payment data found for tran_id: ${tran_id}`);
+            return res.redirect(`https://aust-carnival.vercel.app/error`);
+        }
+
+        paymentData.isPaid = true;
+        await paymentData.save();
+        console.log(`Payment successful for tran_id: ${tran_id}`);
+        return res.redirect(`https://aust-carnival.vercel.app/success`);
     } catch (error) {
-        console.error(error);
-        return res.redirect(`https://aust-carnival.vercel.app/error`)
+        console.error("Error during payment success handling:", error);
+        return res.redirect(`https://aust-carnival.vercel.app/error`);
     }
-})
+});
+
 
 router.get('/error/:tran_id', async (req, res) => {
 

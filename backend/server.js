@@ -61,5 +61,23 @@ app.use('/api', RegistrationRouter)
 app.use('/api', GalleryRouter)
 
 
+
+// Keep-alive ping for /success route
+setInterval(() => {
+    fetch('https://aust-carnival-backend.vercel.app/api/success?tran_id=test')
+        .then(response => console.log('Keep-alive ping for /success route'))
+        .catch(error => console.error('Keep-alive ping for /success route failed', error));
+}, 5 * 60 * 1000); // Every 5 minutes
+
+// Keep-alive ping for /error route
+setInterval(() => {
+    fetch('https://aust-carnival-backend.vercel.app/api/error/test')
+        .then(response => console.log('Keep-alive ping for /error route'))
+        .catch(error => console.error('Keep-alive ping for /error route failed', error));
+}, 5 * 60 * 1000); // Every 5 minutes
+
+
+
+
 app.listen(port)
 

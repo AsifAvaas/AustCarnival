@@ -20,6 +20,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/event" element={<EventPage />}></Route>
+      <Route path="/event/:id" element={<EventPage />}></Route>
       <Route path="/gallery" element={<Gellery />}></Route>
       <Route path="/registration/:id" element={<ProtectedRoutes><Registration /></ProtectedRoutes>}></Route>
       <Route path="/signup" element={<Signup />}></Route>

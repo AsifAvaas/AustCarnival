@@ -90,8 +90,10 @@ router.post('/workshop/student/signup', async (req, res) => {
     try {
         await WorkshopStudent.create({
             WorkshopName: req.body.WorkshopName,
+            hostName: req.body.hostName,
             studentName: studentname.name,
-            studentEmail: req.body.studentEmail
+            studentEmail: req.body.studentEmail,
+            date: req.body.date
         })
         res.json({ success: true });
     } catch (error) {
@@ -104,6 +106,19 @@ router.post('/workshop/instructor', async (req, res) => {
 
     try {
         let workshop = await WorkshopStudent.find({ WorkshopName: req.body.workshopName })
+        if (workshop) {
+            res.json({ success: true, data: workshop });
+        }
+    } catch (error) {
+        console.error(error);
+        res.json({ success: false, error: error.message });
+    }
+})
+
+router.post('/workshop/student/find', async (req, res) => {
+
+    try {
+        let workshop = await WorkshopStudent.find({ studentEmail: req.body.email })
         if (workshop) {
             res.json({ success: true, data: workshop });
         }

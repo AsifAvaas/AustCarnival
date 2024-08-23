@@ -5,9 +5,11 @@ import "../../CSS/profilePage.css";
 import axios from "axios";
 import RegisteredEvents from "../../Components/RegisteredEvents";
 import AdminProfile from "../../Components/admin/AdminProfile";
+import RegisteredWorkshops from "../../Components/RegisteredWorkshops";
 
 export default function Profile() {
   const [regData, setRegData] = useState([]);
+  const [WorkshopData, setWorkshopData] = useState([]);
   const [profileData, setProfileData] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,6 +19,7 @@ export default function Profile() {
     image: "",
   });
   const isAdmin = localStorage.getItem("adminStatus");
+  const emailID = localStorage.getItem("emailID");
   const convertToBase64 = (e) => {
     console.log(e);
     var reader = new FileReader();
@@ -54,14 +57,14 @@ export default function Profile() {
   };
 
   const fetchRegData = async () => {
-    if (!profileData.email) return; // Ensure profileData.email exists
+    // if (!profileData.email) return;
 
     try {
       const response = await axios.post(`${backend}/api/getRegistration`, {
-        email: profileData.email,
+        email: emailID,
       });
       if (response.data && response.data.data) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setRegData(response.data.data);
       } else {
         setRegData([]); // Handle empty data gracefully
@@ -71,12 +74,35 @@ export default function Profile() {
       setRegData([]); // Handle errors by setting regData to an empty array
     }
   };
+
+  const fetchWorkshopData = async () => {
+    try {
+      const response = await axios.post(
+        `${backend}/api/workshop/student/find`,
+        {
+          email: emailID,
+        }
+      );
+      if (response.data && response.data.data) {
+        console.log(response.data.data);
+        setWorkshopData(response.data.data);
+      } else {
+        setWorkshopData([]); // Handle empty data gracefully
+      }
+    } catch (error) {
+      console.error("Error fetching registration data", error);
+      setWorkshopData([]); // Handle errors by setting regData to an empty array
+    }
+  };
+
   useEffect(() => {
     fetchProfile();
-  }, []);
-  useEffect(() => {
     fetchRegData();
-  }, [profileData.email]);
+    fetchWorkshopData();
+  }, []);
+  // useEffect(() => {
+
+  // }, [profileData.email]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -137,35 +163,45 @@ export default function Profile() {
       <div className="profile-info-container">
         <div className="profile_info">
           <div className="info_head">Name:</div>
-          <div className="info_body">
-            {isEditing ? (
-              <input
-                className="profile_input"
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
-            ) : (
-              profileData.name
-            )}
-          </div>
+          {isEditing ? (
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="info_body"
+            />
+          ) : (
+            <div className="info_body">{profileData.name}</div>
+          )}
+
           <div className="info_head">Email:</div>
-          <div className="info_body">
-            {isEditing ? (
+          {isEditing ? (
+            <input
+              className="info_body"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <div className="info_body">{profileData.email}</div>
+          )}
+
+          <div className="info_head">Password:</div>
+          {isEditing ? (
+            <div className="info_body">
               <input
                 className="profile_input"
-                type="email"
-                name="email"
-                value={formData.email}
+                type="password"
+                name="password"
                 onChange={handleInputChange}
               />
-            ) : (
-              profileData.email
-            )}
-          </div>
-          <div className="info_head">Password:</div>
-          <div className="info_body">
+            </div>
+          ) : (
+            <div className="info_body"> **********</div>
+          )}
+          {/* <div className="info_body">
             {isEditing ? (
               <input
                 className="profile_input"
@@ -176,7 +212,8 @@ export default function Profile() {
             ) : (
               "**********"
             )}
-          </div>
+          </div> */}
+
           {isEditing ? (
             <button className="profile_edit" onClick={updateProfile}>
               SUBMIT
@@ -208,6 +245,26 @@ export default function Profile() {
                 date={registration.eventId.date}
                 icon={registration.eventId.icon}
               />
+            ))}
+
+          {WorkshopData.length > 0 && (
+            <div className="title_scafford">
+              <div className="titleName">Registered Workshops:</div>
+            </div>
+          )}
+          {WorkshopData.length > 0 &&
+            WorkshopData.map((workshop, index) => (
+              <>
+                <RegisteredWorkshops
+                  event={workshop.WorkshopName}
+                  name={workshop.hostName}
+                  date={workshop.date}
+                />
+                {/* <div>{workshop.WorkshopName}</div>
+                <div>{workshop.studentEmail}</div>
+                <div>{workshop.studentName}</div>
+                <div>{workshop.hostName}</div> */}
+              </>
             ))}
         </>
       ) : (

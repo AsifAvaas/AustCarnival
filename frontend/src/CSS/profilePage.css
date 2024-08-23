@@ -92,7 +92,7 @@
     padding: 30px;
 }
 
-.reg_event_container{
+.reg_event_container,.workshop_event_container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,7 +102,8 @@
 
 }
 
-.reg_event_body{
+
+.reg_event_body,.workshop_event_body{
     width: 100%;
     max-width: 1250px;
     padding: 30px;
@@ -111,6 +112,9 @@
     float: left;
     border-bottom: 2px solid rgb(15, 66, 35);
 
+}
+.workshop_event_body{
+    flex-direction: column;
 }
 .reg_icon_container{
     background-color: rgb(15, 66, 35);

@@ -11,11 +11,13 @@ function Workshop(props) {
         `${backend}/api/workshop/student/signup`,
         {
           WorkshopName: workshopName,
+          hostName: props.name,
           studentEmail: email,
+          date: props.date,
         }
       );
       if (response.data.success) {
-        alert(`You have been registered in ${workshopName}`);
+        alert(`Registration Complete`);
       } else {
         alert(`Registration failed`);
       }

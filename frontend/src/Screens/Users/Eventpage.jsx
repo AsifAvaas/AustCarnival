@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar";
 import "../../CSS/eventPage.css";
 import Event from "../../Components/Event";
 import Footer from "../../Components/Footer";
 import axios from "axios";
 import EventList from "../../Components/admin/EventList";
+import { useHref } from "react-router-dom";
 function EventPage() {
   const [allEvent, setAllEvent] = useState([]);
+  const { id } = useParams();
   const isAdmin = localStorage.getItem("adminStatus");
   const backend = process.env.REACT_APP_BACKEND_SERVER;
 
@@ -19,9 +22,22 @@ function EventPage() {
     }
   };
   useEffect(() => {
+    if (id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [id, allEvent]);
+  useEffect(() => {
     loadEvent();
   }, []);
-
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="home events">
       <Navbar />
@@ -40,7 +56,7 @@ function EventPage() {
           <div>
             {allEvent.length > 0 &&
               allEvent.map((data, index) => (
-                <div key={data.id}>
+                <div key={data.id} id={data.name}>
                   <Event
                     index={index}
                     eventName={data.name}

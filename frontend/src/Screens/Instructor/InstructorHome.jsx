@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import "../../CSS/Instructor.css";
 import Footer from "../../Components/Footer";
 import axios from "axios";
+import RegisteredStudents from "../../Components/RegisteredStudents";
 
 function InstructorHome() {
   const [profile, setProfile] = useState([]);
   const backend = process.env.REACT_APP_BACKEND_SERVER;
   const userId = sessionStorage.getItem("id");
   const [isEditing, setIsEditing] = useState(false);
+  const [student, setStudent] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     password: "",
@@ -33,7 +35,22 @@ function InstructorHome() {
       console.log("error: ", error);
     };
   };
-
+  const fetchStudent = async () => {
+    try {
+      const response = await axios.post(`${backend}/api/workshop/instructor`, {
+        workshopName: profile.workshop,
+      });
+      if (response.data && response.data.data) {
+        console.log(response.data.data);
+        setStudent(response.data.data);
+      } else {
+        setStudent([]); // Handle empty data gracefully
+      }
+    } catch (error) {
+      console.error("Error fetching registration data", error);
+      setStudent([]); // Handle errors by setting regData to an empty array
+    }
+  };
   const fetchProfile = async () => {
     try {
       const response = await axios.post(`${backend}/api/workshop/profile`, {
@@ -92,6 +109,9 @@ function InstructorHome() {
   useEffect(() => {
     fetchProfile();
   }, []);
+  useEffect(() => {
+    fetchStudent();
+  }, [formData]);
 
   return (
     <div className="home">
@@ -231,7 +251,24 @@ function InstructorHome() {
           )}
         </div>
       </div>
-
+      {student.length > 0 && (
+        <div className="title_scafford">
+          <div className="titleName">Registered Students:</div>
+        </div>
+      )}
+      {student.length > 0 &&
+        student.map((student, index) => (
+          <>
+            <RegisteredStudents
+              name={student.studentName}
+              email={student.studentEmail}
+            />
+            {/* <div>{student.WorkshopName}</div>
+            <div>{student.studentEmail}</div>
+            <div>{student.studentName}</div>
+            <div>{student.hostName}</div> */}
+          </>
+        ))}
       <button onClick={handleLogout} className="instructor_logout">
         Logout
       </button>

@@ -4,7 +4,10 @@ const { Schema } = mongoose
 const workshopStudentSchema = new Schema({
     WorkshopName: String,
     studentName: String,
-    studentEmail: String
+    hostName: String,
+    studentEmail: String,
+    date: String,
+
 })
 
 module.exports = mongoose.model('workshopStudents', workshopStudentSchema)

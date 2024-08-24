@@ -26,7 +26,12 @@
     box-sizing: border-box; 
     border-radius: 10px; 
 }
+@media only screen and (max-width:850px){
+    .form-container {
+        width: 90%;
+    }
 
+}
 .header {
     color: rgb(13, 77, 39);
     font-weight: 500;

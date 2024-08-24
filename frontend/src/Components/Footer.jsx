@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useLocation, NavLink, useNavigate } from "react-router-dom";
 import "../CSS/footer.css";
 
 function Footer() {
@@ -24,17 +25,41 @@ function Footer() {
           <div className="grid">
             <h2>About Us</h2>
             <ul>
-              <li>Who we are</li>
-              <li>Who care</li>
-              <li>Our goal</li>
+              <li>
+                <Link className="link" style={{ fontSize: "15px" }} to="/faq">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="link" style={{ fontSize: "15px" }} to="/faq">
+                  Who care
+                </Link>
+              </li>
+              <li>
+                <Link className="link" style={{ fontSize: "15px" }} to="/faq">
+                  Our goal
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="grid">
             <h2>Common Questions</h2>
             <ul>
-              <li>FAQ's</li>
-              <li>What is AUST CSE Carnival</li>
-              <li>Organizers of AUST Carnival</li>
+              <li>
+                <Link className="link" style={{ fontSize: "15px" }} to="/faq">
+                  FAQ's
+                </Link>
+              </li>
+              <li>
+                <Link className="link" style={{ fontSize: "15px" }} to="/faq">
+                  What is AUST CSE Carnival
+                </Link>
+              </li>
+              <li>
+                <Link className="link" style={{ fontSize: "15px" }} to="/faq">
+                  Organizers of AUST Carnival
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="grid">
@@ -51,8 +76,28 @@ function Footer() {
           <div className="grid">
             <h2>Socials</h2>
             <ul>
-              <li>Facebook</li>
-              <li>Twitter</li>
+              <li>
+                <a
+                  className="link"
+                  style={{ fontSize: "15px" }}
+                  href="https://www.facebook.com/asif.avaas.52"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  className="link"
+                  style={{ fontSize: "15px" }}
+                  href="https://github.com/AsifAvaas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+              </li>
             </ul>
           </div>
         </div>

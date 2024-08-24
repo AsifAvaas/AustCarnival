@@ -7,9 +7,9 @@ function Card(props) {
       className="card-body"
       style={{ backgroundImage: `url(${props.image})` }}
     >
-      <i className={props.icon} style={{ zIndex: "10", fontSize: "90px" }}></i>
+      <i className={`${props.icon} card_icon`}></i>
       <br />
-      <div style={{ zIndex: "10" }}>{props.name}</div>
+      <div className="card_subtitle"> {props.name}</div>
     </div>
   );
 }

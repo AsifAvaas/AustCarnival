@@ -129,11 +129,6 @@ function InstructorHome() {
                 : { backgroundColor: "white" }
             }
           >
-            {/* {!profile.profile_pic && (
-              <div className="instructor_icon_container">
-                <i className="fa-regular fa-user  instructor_icon"></i>
-              </div>
-            )} */}
             {isEditing ? (
               <>
                 <label htmlFor="fileInput" className="fileInputLabel">
@@ -158,7 +153,7 @@ function InstructorHome() {
               </>
             )}
           </div>
-
+          <div style={{ height: "20px" }}></div>
           <div className="ins_header">Name: </div>
           {isEditing ? (
             <input
@@ -258,16 +253,10 @@ function InstructorHome() {
       )}
       {student.length > 0 &&
         student.map((student, index) => (
-          <>
-            <RegisteredStudents
-              name={student.studentName}
-              email={student.studentEmail}
-            />
-            {/* <div>{student.WorkshopName}</div>
-            <div>{student.studentEmail}</div>
-            <div>{student.studentName}</div>
-            <div>{student.hostName}</div> */}
-          </>
+          <RegisteredStudents
+            name={student.studentName}
+            email={student.studentEmail}
+          />
         ))}
       <button onClick={handleLogout} className="instructor_logout">
         Logout

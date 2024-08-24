@@ -156,3 +156,60 @@
   font-size: 100px;
   font-weight: 500;
 }
+
+@media only screen and (max-width:720px){
+  .welcome-inside ul{
+    font-size: 3rem;
+  }
+  .welcome-inside li {
+    line-height:60px;
+  }
+  .navbar-pic {
+    height: 500px;
+  }
+  .welcome{
+    height: auto;
+  }
+  .carnival-logo {
+    height: 50px;
+    width: auto;
+  }
+    .link {
+      font-size: 20px ;
+    }
+    .navbar li {
+      margin: 0 5px;
+    }
+    .my_profile{
+      font-size: 30px;
+    }
+    .admin_welcome{
+      font-size: 60px;
+      margin-top: 80px;
+
+    }
+}
+@media only screen and (max-width:480px){
+
+
+  .carnival-logo {
+    height: 50px;
+    width: auto;
+  }
+  .link {
+    font-size: 17px ;
+  }
+  .navbar li {
+    margin: 0px;
+  }
+
+}
+@media only screen and (max-width:400px){
+  .carnival-logo {
+  display: none;
+  }
+  .welcome-inside ul{
+    font-size: 2rem;
+  }
+
+}

@@ -101,35 +101,37 @@ function WorkshopList() {
     <div className="admin_workshop_container">
       <div className="admin_workshop_scaffold">
         <div className="workshop_header">Assign a new Instructor:</div>
-        <form onSubmit={submit}>
-          <input
-            className="input-container"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-          />
-          <input
-            className="input-container"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          <input
-            className="input-container"
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm Password"
-          />
-          <button className="btn" type="submit">
-            Register
-          </button>
-        </form>
+        <div className="admin_register_new">
+          <form onSubmit={submit}>
+            <input
+              className="input-container"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+            />
+            <input
+              className="input-container"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+            <input
+              className="input-container"
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+            />
+            <button className="btn" type="submit">
+              Register
+            </button>
+          </form>
+        </div>
         <div className="workshop_header">Assigned Workshops:</div>
         {allWorkshop.length > 0 &&
           allWorkshop.map((data, index) => (

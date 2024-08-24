@@ -33,6 +33,32 @@
     display: block;
     margin: 0 auto;
 }
+@media only screen and (max-width:1100px){
+    .profile-img {
+        height: 250px;
+        width: 250px;
+        border-radius: 80px;
+        left: 150px; 
+    }
+}
+@media only screen and (max-width:600px){
+    .profile-img {
+        height: 200px;
+        width: 200px;
+        border-radius: 80px;
+        left: 100px; 
+        top: -150px; 
+    }
+}
+@media only screen and (max-width:380px){
+    .profile-img {
+        height: 180px;
+        width: 180px;
+        border-radius: 70px;
+        left: 70px; 
+        top: -150px; 
+    }
+}
 .profile_info{
     width: 100%;
     padding: 60px;
@@ -43,10 +69,14 @@
     color: rgb(13, 77, 39);
     font-weight: 500;
 }
-.event_info_head{
+.event_info_head,.workshop_info_head{
     font-size:22px;
     color: rgb(13, 77, 39);
     font-weight: 500;
+}
+.workshop_info_head{
+    font-size:25px;
+    
 }
 .info_body{
     background-color: white;
@@ -57,6 +87,7 @@
     width: 60%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
 }
+
 .profile_edit{
     background-color: rgb(122, 159, 137);
     padding: 10px 30px ;
@@ -68,6 +99,7 @@
     margin-top: 15px;
     cursor: pointer;
 }
+
 .profile_input{
     border: none;
     font-size: 20px;
@@ -111,6 +143,7 @@
     display: flex;
     float: left;
     border-bottom: 2px solid rgb(15, 66, 35);
+    box-sizing: border-box;
 
 }
 .workshop_event_body{
@@ -140,4 +173,67 @@
 .event_body_info{
     font-weight: 500;
     padding: 3px 0px;
+}
+.event_info_header{
+     margin-bottom: 10px; 
+     font-size: 30px;
+}
+
+@media only screen and (max-width:600px){
+    .info_body {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0px;
+        font-size: 15px;
+    }
+    .profile_info{padding-top: 0px;}
+    .profile-img-container{
+        height: 70px;
+    }
+    .profile_edit{
+        padding: 8px 20px ;
+        font-size: 15px;
+    }
+    .titleName{
+        font-size: 30px;
+    }
+    .reg_icon_container{
+        height: 200px;
+        width: 140px;
+        font-size: 50px;
+        margin-right: 10px;
+    }
+
+    .reg_icon_container i{
+        padding: 10px;
+        
+    }
+    .event_name{
+        font-size: 40px;
+    }
+    .event_info_header,.event_info_head{
+        font-size:20px;
+    }
+    .event_body_info{
+        font-size:15px;
+    }
+    .workshop_info_head{
+        font-size:20px;
+
+    }
+       
+}
+@media only screen and (max-width:400px){
+    .event_name{
+        font-size: 20px;
+    }
+
+
+}
+@media only screen and (max-width:300px){
+    .event_name{
+        font-size: 15px;
+    }
+
+
 }

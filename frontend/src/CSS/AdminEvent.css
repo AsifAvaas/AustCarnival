@@ -85,7 +85,7 @@
   
   @media (max-width: 600px) {
     .modal_container {
-      width: 90%; /* Adjust for smaller screens */
+      width: 90%; 
     }
   }
   
@@ -139,4 +139,22 @@
     border: 1px solid rgb(13, 77, 39);
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  @media only screen and (max-width:720px){
+    .new_event_body{
+      padding: 0px;
+    }
+    .new_event_title{
+      font-size: 35px;
+    }
+    .form_lebel{
+      font-size: 20px;
+    }
+    .event_input_container{
+      font-size: 15px;
+      padding: 10px;
+      padding-left: 10px;
+      border-radius: 10px;
+    }
   }

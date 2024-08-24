@@ -24,6 +24,19 @@
     font-size:25px;
     
 }
+@media only screen and (max-width:1000px){
+    .head{
+        font-size: 40px;
+    }
+    .body{
+        font-size:15px;   
+    }
+    .eventpage{
+        margin-top: 30px;
+    
+    }
+}
+
 .event-item{
     margin-top: 60px;
     width: 100%;
@@ -51,7 +64,6 @@
 
 .eventpic {
     flex: 1;
-    background-image: url('../images/navbar.jpg'); 
     height: 400px;
     background-size: cover; 
     background-position: center; 
@@ -101,4 +113,34 @@
     background-color: rgb(39, 114, 54);
 }
 
+@media only screen and (max-width:1000px){
+    .eventpic { 
+        height: 250px;
+    }
+    .eventpic .content {
+        font-size: 20px;
+    }
+    .name{
+        font-size: 30px;
+       
+    }
+    .details{
+        font-size: 15px;
+    }
+    .event-btn{
+        padding: 10px 30px; 
+        border-radius: 15px;
+        font-size: 10px;
+    }
+    
+  }
 
+@media only screen and (max-width:800px){
+    .inside-event-item{
+        display: block;
+    }
+    .eventpic { 
+        height: 400px;
+        margin: 20px;
+    }
+}

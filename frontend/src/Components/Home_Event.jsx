@@ -7,6 +7,7 @@ import axios from "axios";
 function Home_Event() {
   const [allEvent, setAllEvent] = useState([]);
   const navigate = useNavigate();
+  const [cardsToShow, setCardsToShow] = useState(5);
 
   const backend = process.env.REACT_APP_BACKEND_SERVER;
   const shuffleArray = (array) => {
@@ -20,13 +21,25 @@ function Home_Event() {
     try {
       const response = await axios.post(`${backend}/api/displayevent`);
       const shuffledEvents = shuffleArray(response.data);
-      setAllEvent(shuffledEvents.slice(0, 5));
+      setAllEvent(shuffledEvents);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     loadEvent();
+  }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 600) {
+        setCardsToShow(4);
+      } else {
+        setCardsToShow(5);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleEventClick = (id) => {
@@ -45,7 +58,7 @@ function Home_Event() {
 
         <div className="event-shortcut">
           {allEvent.length > 0 &&
-            allEvent.map((data) => (
+            allEvent.slice(0, cardsToShow).map((data) => (
               <div
                 key={data.id}
                 className="card-container"

@@ -201,18 +201,6 @@ export default function Profile() {
           ) : (
             <div className="info_body"> **********</div>
           )}
-          {/* <div className="info_body">
-            {isEditing ? (
-              <input
-                className="profile_input"
-                type="password"
-                name="password"
-                onChange={handleInputChange}
-              />
-            ) : (
-              "**********"
-            )}
-          </div> */}
 
           {isEditing ? (
             <button className="profile_edit" onClick={updateProfile}>
@@ -260,10 +248,6 @@ export default function Profile() {
                   name={workshop.hostName}
                   date={workshop.date}
                 />
-                {/* <div>{workshop.WorkshopName}</div>
-                <div>{workshop.studentEmail}</div>
-                <div>{workshop.studentName}</div>
-                <div>{workshop.hostName}</div> */}
               </>
             ))}
         </>

@@ -51,6 +51,7 @@
     background-repeat: no-repeat; 
     border-radius: 50px;
 }
+
 .ins_header{
     font-size: 30px;
     font-weight: 500;
@@ -106,4 +107,43 @@
   }
   .instructor_logout:hover{
     background-color:brown
+  }
+  .instructor_info_head{
+    font-size:30px;
+    color: rgb(13, 77, 39);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+@media only screen and (max-width:1200px){
+  .ins_body{
+    width: 80%;
+  }
+
+}
+  @media only screen and (max-width:600px){
+    .instructor_header{
+      font-size: 60px;
+    }
+    .Instructor_banner{
+      height: 300px;
+    }
+    .picture{
+      height: 200px;
+      width: 200px;
+    }
+    .ins_header{
+      font-size: 20px;
+    }
+    .ins_body{
+      width: 100%;
+    }
+    .instructor_info_head{
+      font-size:20px;
+      
+    }
+    .instructor_logout{
+      font-size: 15px;
+      width: 200px;
+    }
+  
   }

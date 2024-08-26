@@ -30,3 +30,51 @@ Follow these steps to set up the project locally:
    ```bash
    git clone https://github.com/your-username/CSE-Carnival.git
    cd CSE-Carnival
+2. **Install dependencies:**
+
+   ```bash
+   # For the backend
+   cd backend
+   npm install
+
+   # For the frontend
+   cd ../client
+   npm install
+
+Certainly! Here’s the "Run the app" section written in Markdown:
+
+markdown
+Copy code
+4. **Run the app:**
+
+   ```bash
+   # Start the backend server
+   cd backend
+   npm start
+
+   # Start the frontend server
+   cd ../client
+   npm start
+The application should now be running on [http://localhost:3000](http://localhost:3000).
+## Usage
+
+- **Users**: Create an account, log in, browse events, and register.
+- **Admins**: Access the admin panel to manage events and workshops.
+- **Instructors**: Access dedicated pages to manage their workshops.
+
+## Screenshots
+
+_Add screenshots of your application here to give users an idea of the UI/UX._
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+- **Your Name**: [your-email@example.com](mailto:your-email@example.com)
+- **GitHub**: [https://github.com/your-username](https://github.com/your-username)

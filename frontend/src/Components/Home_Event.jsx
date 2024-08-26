@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "../CSS/home.css";
 import Card from "./Card";
 import axios from "axios";
 
 function Home_Event() {
   const [allEvent, setAllEvent] = useState([]);
-  const navigate = useNavigate();
   const [cardsToShow, setCardsToShow] = useState(5);
 
   const backend = process.env.REACT_APP_BACKEND_SERVER;
@@ -42,9 +40,6 @@ function Home_Event() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleEventClick = (id) => {
-    navigate(`/event/${id}`);
-  };
   return (
     <div className="home-event-container">
       <div className="home-event">
@@ -59,11 +54,7 @@ function Home_Event() {
         <div className="event-shortcut">
           {allEvent.length > 0 &&
             allEvent.slice(0, cardsToShow).map((data) => (
-              <div
-                key={data.id}
-                className="card-container"
-                onClick={() => handleEventClick(data.name)}
-              >
+              <div key={data.id} className="card-container">
                 <Card name={data.name} icon={data.icon} image={data.image} />
               </div>
             ))}

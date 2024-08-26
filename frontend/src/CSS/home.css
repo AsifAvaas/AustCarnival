@@ -46,7 +46,7 @@
     flex: 1 1 20%;
     max-width: 20%;
     align-items: center;
-    cursor: pointer;
+
     
     
   }
@@ -78,6 +78,7 @@
     align-items: center;
     border-radius: 15px;
     box-shadow: 2px 6px 20px rgba(0, 0, 0, 0.654);
+    cursor: pointer;
   }
   .card-body::before {
     content: '';

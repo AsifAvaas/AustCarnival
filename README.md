@@ -1,8 +1,8 @@
-# CSE Carnival
+# AUST CSE Carnival
 
 ## Overview
 
-**CSE Carnival** is a web application developed for the CSE department of [Ahsanullah University of Science & Technology. The platform allows users to log in, browse various CSE-related events such as programming contests, hackathons, and software exhibitions, and register for any event of interest. Additionally, users can participate in workshops organized by the university. The site also features an admin panel for managing events and workshop instructors.
+**AUST CSE Carnival** is a web application developed for the CSE department of [Ahsanullah University of Science & Technology. The platform allows users to log in, browse various CSE-related events such as programming contests, hackathons, and software exhibitions, and register for any event of interest. Additionally, users can participate in workshops organized by the university. The site also features an admin panel for managing events and workshop instructors.
 
 ## Features
 
@@ -65,4 +65,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Contact
 
 - **Asif A Khuda**: [asif13.aak@gmail.com](mailto:asif13.aak@gmail.com)
-- **GitHub**: [[https://github.com/your-username](https://github.com/your-username)](https://github.com/AsifAvaas)
+- **GitHub**: [[https://github.com/AsifAvaas](https://github.com/AsifAvaas)](https://github.com/AsifAvaas)

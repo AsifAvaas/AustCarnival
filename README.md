@@ -2,7 +2,7 @@
 
 ## Overview
 
-**AUST CSE Carnival** is a web application developed for the CSE department of [Ahsanullah University of Science & Technology. The platform allows users to log in, browse various CSE-related events such as programming contests, hackathons, and software exhibitions, and register for any event of interest. Additionally, users can participate in workshops organized by the university. The site also features an admin panel for managing events and workshop instructors.
+**AUST CSE Carnival** is a web application developed for the CSE department of Ahsanullah University of Science & Technology. The platform allows users to log in, browse various CSE-related events such as programming contests, hackathons, and software exhibitions, and register for any event of interest. Additionally, users can participate in workshops organized by the university. The site also features an admin panel for managing events and workshop instructors.
 
 ## Features
 
@@ -30,14 +30,17 @@ Follow these steps to set up the project locally:
    ```bash
    git clone https://github.com/AsifAvaas/AustCarnival.git
    cd AustCarnival
+   ```
 2. **Install dependencies:**
 
    ```bash
    cd .\backend\
    npm install axios bcrypt cors express express-validator  jsonwebtoken mongoose sslcommerz-lts uuid  nodemon dotenv
-   
+
    cd .\frontend\
-   npm install react-router-dom axios jwt-decode node-global-storage uuid 
+   npm install react-router-dom axios jwt-decode node-global-storage uuid
+
+   ```
 
 3. **Run the app:**
 
@@ -47,7 +50,8 @@ Follow these steps to set up the project locally:
 
    cd .\frontend\
    npm start
-The application should now be running on [http://localhost:3000](http://localhost:3000).
+   The application should now be running on [http://localhost:3000](http://localhost:3000).
+   ```
 
 ## Usage
 
@@ -55,12 +59,9 @@ The application should now be running on [http://localhost:3000](http://localhos
 - **Admins**: Access the admin panel to manage events and workshops.
 - **Instructors**: Access dedicated pages to manage their workshops.
 
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-
 
 ## Contact
 

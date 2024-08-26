@@ -33,29 +33,22 @@ Follow these steps to set up the project locally:
 2. **Install dependencies:**
 
    ```bash
-   # For the backend
    cd backend
    npm install
-
-   # For the frontend
+   
    cd ../client
    npm install
 
-Certainly! Here’s the "Run the app" section written in Markdown:
-
-markdown
-Copy code
-4. **Run the app:**
+3. **Run the app:**
 
    ```bash
-   # Start the backend server
    cd backend
    npm start
 
-   # Start the frontend server
    cd ../client
    npm start
 The application should now be running on [http://localhost:3000](http://localhost:3000).
+
 ## Usage
 
 - **Users**: Create an account, log in, browse events, and register.

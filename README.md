@@ -5,7 +5,8 @@ User Authentication: Secure login and registration system.
 Event Browsing: View all available CSE events.
 Event Registration: Register for events with a few clicks.
 Workshops: Participate in various CSE workshops.
-Admin Panel: Manage events and workshops.
+Admin Panel: Manage events and workshops.![thumbnail](https://github.com/user-attachments/assets/aa73d323-78b8-495f-9169-5ba2255611ba)
+
 Instructor Pages: Dedicated pages for workshop instructors.
 Tech Stack
 Frontend: React.js, HTML, CSS, JavaScript

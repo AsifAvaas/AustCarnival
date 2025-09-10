@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
+const User = require('../models/User')
 const Event = require('../models/Events')
+const sendEmail = require('../utils/sendEmail')
+const frontend = process.env.FRONTEND_LINK
 
 
 router.post('/displayevent', async (req, res) => {
@@ -15,14 +17,44 @@ router.post('/displayevent', async (req, res) => {
 })
 router.post('/event/create', async (req, res) => {
     try {
-        await Event.create({
+        const event = await Event.create({
             name: req.body.name,
             body: req.body.body,
             date: req.body.date,
             image: req.body.image,
             icon: req.body.icon,
-            price: req.body.price
-        })
+            price: req.body.price,
+        });
+        const users = await User.find({ hasEmail: true }, "email name");
+        if (users.length === 0) {
+            return res.json({ success: true, message: "Event created but no users with email enabled." });
+        }
+        const subject = `New Event: ${event.name}`;
+        const html = ` 
+        <p>We are excited to announce a new event!</p>
+
+      <h1>${event.name}</h1>
+      <p>${event.body}</p>
+      <p><strong>Date:</strong> ${event.date}</p>
+      <p><strong>Price:</strong> ${event.price ? event.price + " BDT" : "Free"}</p>
+      <p><a href="${frontend}/event/${event.name}" 
+            style="display:inline-block;padding:10px 20px;background:#4CAF50;color:#fff;text-decoration:none;border-radius:5px;">
+            View Event
+         </a></p>
+    `;
+
+
+        const emailPromises = users.map((user) =>
+            sendEmail(
+                user.email,
+                subject,
+                `<p>Hello ${user.name || ""},</p>` + html
+            )
+        );
+
+        await Promise.all(emailPromises);
+
+
         res.json({ success: true });
     } catch (e) {
         console.error(e);

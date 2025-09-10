@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "../CSS/registration.css";
 import axios from "axios";
@@ -25,27 +25,32 @@ function RegistrationForm({ onSuccess }) {
   };
   const registrationSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(`${backend}/api/payment`, {
-        name1: formData.name1,
-        main_email: formData.main_email,
-        roll1: formData.roll1,
-        name2: formData.name2,
-        email2: formData.email2,
-        roll2: formData.roll2,
-        name3: formData.name3,
-        email3: formData.email3,
-        roll3: formData.roll3,
-        team: formData.team,
-        event_name: formData.event_name,
-        number: formData.number,
-        price: "1852",
-      });
 
-      window.location.href = data.url;
+    try {
+      const { data } = await axios.post(
+        `${backend}/api/payment`,
+        {
+          name1: formData.name1,
+          main_email: formData.main_email,
+          roll1: formData.roll1,
+          name2: formData.name2,
+          email2: formData.email2,
+          roll2: formData.roll2,
+          name3: formData.name3,
+          email3: formData.email3,
+          roll3: formData.roll3,
+          team: formData.team,
+          event_name: formData.event_name,
+          number: formData.number,
+          price: "1852", // can be dynamic
+        },
+        { withCredentials: true }
+      );
+
+      window.location.href = data.bkashURL;
     } catch (error) {
       console.error(error);
-      alert(error.response?.data?.messege || "An unexpected error occurred.");
+      alert(error.response?.data?.message || "An unexpected error occurred.");
     }
   };
   return (

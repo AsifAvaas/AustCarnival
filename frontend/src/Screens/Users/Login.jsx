@@ -68,7 +68,14 @@ function Login() {
                 onChange={handleChange}
                 placeholder="Password"
               />
-              <button className="btn" type="submit">
+              <Link className="linktoggle" to="/forgotpassword">
+                Forgot Password? Click Here
+              </Link>
+              <button
+                className="btn"
+                style={{ marginTop: "10px" }}
+                type="submit"
+              >
                 Login
               </button>
             </form>

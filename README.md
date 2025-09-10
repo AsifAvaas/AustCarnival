@@ -35,10 +35,10 @@ Follow these steps to set up the project locally:
 
    ```bash
    cd .\backend\
-   npm install axios bcrypt cors express express-validator  jsonwebtoken mongoose sslcommerz-lts uuid  nodemon dotenv
+   npm install
 
    cd .\frontend\
-   npm install react-router-dom axios jwt-decode node-global-storage uuid
+   npm install
 
    ```
 

@@ -34,7 +34,9 @@ function Signup() {
       });
       const data = response.data;
       if (data.success) {
-        navigate("/login");
+        alert(
+          "An email has been sent to your account. Please verify your email."
+        );
       } else {
         if (Array.isArray(data.messege)) {
           alert(

@@ -20,6 +20,14 @@ const UserSchema = new Schema({
     },
     isAdmin: {
         type: Boolean,
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    hasEmail: {
+        type: Boolean,
+        default: false
     }
 
 
